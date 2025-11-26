@@ -27,159 +27,161 @@ import {
 const achievementsData = {
   academic: [
     {
+      title: "Gateway College Colombo Academic Scholar",
+      description: "Recognized for outstanding academic achievement",
+      year: "2024-2025",
+      icon: <SchoolIcon />,
+      color: "#6366f1",
+    },
+    {
+      title: "Edexcel Academic Excellence Award",
+      description: "Outstanding performance in Edexcel examinations",
+      year: "2024",
+      icon: <StarIcon />,
+      color: "#8b5cf6",
+    },
+    {
       title: "Edexcel Advanced Level",
       description: "Mathematics (A*), Physics (A), Chemistry (A)",
       year: "2025",
       icon: <SchoolIcon />,
+      color: "#a78bfa",
+    },
+  ],
+  technology: [
+    {
+      title: "Asian Pacific ICT Alliance Merit Award",
+      description: "Recognition for excellence in ICT and technology leadership",
+      year: "2025",
+      icon: <AwardIcon />,
       color: "#6366f1",
     },
     {
-      title: "Edexcel International GCSE",
-      description: "Mathematics (A*), Physics (A*), Chemistry (A*), Biology (A*), English Language (A), English Literature (A), Sinhala (A), Combined Science (A*A*)",
-      year: "2023",
-      icon: <SchoolIcon />,
-      color: "#8b5cf6",
-    },
-    {
-      title: "Dean's List",
-      description: "Pennsylvania State University - Exceptional Academic Performance",
+      title: "Young Computer Scientist Competition Sri Lanka",
+      description: "1st Place - National Level Competition",
       year: "2025",
-      icon: <StarIcon />,
-      color: "#a78bfa",
+      icon: <TrophyIcon />,
+      color: "#8b5cf6",
     },
   ],
   modelUN: [
     {
-      title: "Best Delegate - Security Council",
-      description: "Musaeus MUN 2023",
-      year: "2023",
+      title: "Colombo Model United Nations Best Chair Award",
+      description: "Recognized as Best Chair for exceptional committee leadership",
+      year: "2025",
       icon: <TrophyIcon />,
       color: "#6366f1",
     },
     {
-      title: "Best Delegate - Security Council",
-      description: "Lyceum MUN 2024",
-      year: "2024",
-      icon: <TrophyIcon />,
+      title: "Sri Lanka Model United Nations Higher Commendation Award",
+      description: "Outstanding performance in committee deliberations",
+      year: "2025",
+      icon: <AwardIcon />,
       color: "#8b5cf6",
     },
     {
-      title: "Best Delegate - Security Council",
-      description: "Colombo International School MUN 2024",
+      title: "Sri Lanka Model United Nations Best Delegate Award",
+      description: "Top delegate recognition for diplomacy and negotiation",
       year: "2024",
       icon: <TrophyIcon />,
       color: "#a78bfa",
     },
     {
-      title: "Best Delegate - ECOSOC",
-      description: "Gateway MUN 2024",
+      title: "Sri Lanka Model United Nations Best Working Paper Award",
+      description: "Excellence in policy writing and research",
       year: "2024",
-      icon: <TrophyIcon />,
+      icon: <AwardIcon />,
       color: "#6366f1",
     },
     {
-      title: "Outstanding Delegate - UNEP",
-      description: "BMICH MUN 2024",
+      title: "Colombo Model United Nations Higher Commendation Award",
+      description: "Strong performance in committee debates",
       year: "2024",
-      icon: <AwardIcon />,
-      color: "#8b5cf6",
-    },
-    {
-      title: "Honorable Mention - Security Council",
-      description: "Carey MUN 2023",
-      year: "2023",
-      icon: <AwardIcon />,
-      color: "#a78bfa",
-    },
-    {
-      title: "Verbal Commendation - General Assembly 3rd",
-      description: "Lyceum MUN 2023",
-      year: "2023",
       icon: <StarIcon />,
-      color: "#6366f1",
+      color: "#8b5cf6",
+    },
+    {
+      title: "Colombo Model United Nations Best Crisis Delegation Award",
+      description: "Outstanding crisis committee performance",
+      year: "2024",
+      icon: <TrophyIcon />,
+      color: "#a78bfa",
     },
   ],
   sports: [
     {
-      title: "Swimming Captain",
-      description: "Led Gateway College Swimming Team - Multiple victories in inter-school competitions",
-      year: "2023-2025",
+      title: "Age Group Relay Championships - 4x50m Medley Relay",
+      description: "Third Place - Boys Under-17",
+      year: "2022",
       icon: <SportsIcon />,
       color: "#6366f1",
     },
     {
-      title: "National Swimming Championship",
-      description: "Qualified and competed in national level competitions",
-      year: "2022-2024",
-      icon: <EmojiEvents />,
+      title: "Age Group Relay Championships - 4x50m Freestyle Relay",
+      description: "Third Place - Boys Under-17",
+      year: "2022",
+      icon: <SportsIcon />,
       color: "#8b5cf6",
     },
     {
-      title: "Inter-School Swimming Champion",
-      description: "First place in multiple events including freestyle and butterfly",
-      year: "2023",
+      title: "Sri Lankan Schools' Aquatic Sports Championships",
+      description: "Second Place - 200 LC Meter Freestyle",
+      year: "2019",
       icon: <TrophyIcon />,
       color: "#a78bfa",
+    },
+    {
+      title: "Sri Lankan Schools' Aquatic Sports Championships",
+      description: "Fourth Place - 400 LC Meter Freestyle",
+      year: "2019",
+      icon: <StarIcon />,
+      color: "#6366f1",
     },
   ],
   leadership: [
     {
-      title: "President - Interpol General Assembly",
-      description: "Colombo Model United Nations 2025 - Leading international committee",
-      year: "2025",
-      icon: <GlobalIcon />,
+      title: "Gateway College Colombo Model UN Secretary General",
+      description: "Led the organization of Gateway MUN conference",
+      year: "2024-2025",
+      icon: <LanguageIcon />,
       color: "#6366f1",
     },
     {
-      title: "Founder - Gateway ICT Society",
-      description: "Established and led technology club promoting coding and innovation",
-      year: "2023-2025",
+      title: "Gateway College Colombo Deputy Head Prefect",
+      description: "Student leadership and school governance",
+      year: "2024-2025",
       icon: <StarIcon />,
       color: "#8b5cf6",
     },
     {
-      title: "Student Council Member",
-      description: "Gateway College Colombo - Represented student body",
-      year: "2022-2025",
-      icon: <SchoolIcon />,
+      title: "Gateway College Colombo ICT Society Vice President",
+      description: "Led technology initiatives and ICT education programs",
+      year: "2024-2025",
+      icon: <AwardIcon />,
       color: "#a78bfa",
+    },
+    {
+      title: "Gateway College Colombo House Captain",
+      description: "House leadership and inter-house competition coordination",
+      year: "2023-2024",
+      icon: <StarIcon />,
+      color: "#6366f1",
+    },
+    {
+      title: "Gateway College Colombo Swim Team Captain",
+      description: "Led competitive swim team to multiple victories",
+      year: "2022-2024",
+      icon: <SportsIcon />,
+      color: "#8b5cf6",
     },
   ],
   international: [
     {
-      title: "International Travel Experience",
-      description: "Australia - Cultural exchange and educational visit",
-      year: "2019",
+      title: "Asian Pacific ICT Alliance",
+      description: "Represented Sri Lanka at regional ICT conference",
+      year: "2025",
       icon: <GlobalIcon />,
       color: "#6366f1",
-    },
-    {
-      title: "International Travel Experience",
-      description: "Brunei - ASEAN cultural immersion program",
-      year: "2022",
-      icon: <GlobalIcon />,
-      color: "#8b5cf6",
-    },
-    {
-      title: "International Travel Experience",
-      description: "India - Heritage and technology tour",
-      year: "2023",
-      icon: <GlobalIcon />,
-      color: "#a78bfa",
-    },
-    {
-      title: "International Travel Experience",
-      description: "Italy - European cultural and historical exploration",
-      year: "2024",
-      icon: <GlobalIcon />,
-      color: "#6366f1",
-    },
-    {
-      title: "International Travel Experience",
-      description: "United Arab Emirates - Technology and innovation expo",
-      year: "2024",
-      icon: <GlobalIcon />,
-      color: "#8b5cf6",
     },
   ],
 };
@@ -367,6 +369,13 @@ function DesktopAchievements() {
         />
 
         <CategorySection
+          title="Technology & ICT"
+          subtitle="Recognition for excellence in technology and computer science"
+          icon={<StarIcon />}
+          achievements={achievementsData.technology}
+        />
+
+        <CategorySection
           title="Model United Nations"
           subtitle="Awards and recognitions from MUN conferences across Sri Lanka"
           icon={<GlobalIcon />}
@@ -389,7 +398,7 @@ function DesktopAchievements() {
 
         <CategorySection
           title="International Experience"
-          subtitle="Cultural immersion and global exposure through international travel"
+          subtitle="Representing Sri Lanka on international platforms"
           icon={<LanguageIcon />}
           achievements={achievementsData.international}
         />
@@ -438,6 +447,12 @@ function MobileAchievements() {
           title="Academic"
           icon={<SchoolIcon />}
           achievements={achievementsData.academic}
+        />
+
+        <CategorySection
+          title="Technology"
+          icon={<StarIcon />}
+          achievements={achievementsData.technology}
         />
 
         <CategorySection

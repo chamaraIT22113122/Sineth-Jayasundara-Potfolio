@@ -35,6 +35,9 @@ import {
 
 /* ---------------- data ---------------- */
 const skillCategories = {
+  "Programming Languages": ["Python", "C++"],
+  "Computer Skills": ["Google Drive", "Microsoft Office Suite", "Social Media Platforms"],
+  "Language Skills": ["English (Native Speaker)", "Sinhala (Read, Speak)"],
   "Soft Skills": [
     "Communication",
     "Project Management",
@@ -47,33 +50,13 @@ const skillCategories = {
     "Creativity",
     "Decision Making",
   ],
-  "Programming Languages": ["PHP", "JavaScript", "TypeScript", "Python", "Java", "C++", "Kotlin"],
-  Databases: ["MySQL", "MongoDB"],
-  "Frontend Development": ["HTML", "CSS", "Bootstrap", "Tailwind CSS", "React.js", "Material-UI", "Three.js"],
-  "Backend Development": ["Node.js", "Express.js"],
-  "Tools & Frameworks": ["Vite", "Figma", "Digital Marketing", "Web Applications"],
-  "Office & Productivity": [
-    "Microsoft Excel",
-    "Google Sheets",
-    "Google Docs",
-    "Google Slides",
-    "Microsoft Word",
-    "Microsoft PowerPoint",
-  ],
-  Applications: ["ClickUp", "Zoom", "Microsoft Teams"],
-  Frameworks: ["React.js", "TypeScript", "Express.js", "Node.js", "Material-UI", "Bootstrap", "Tailwind CSS"],
 };
 
 const categoryIcons = {
-  "Soft Skills": <Work sx={{ color: "#6366f1" }} />,
   "Programming Languages": <Code sx={{ color: "#6366f1" }} />,
-  Databases: <Storage sx={{ color: "#6366f1" }} />,
-  "Frontend Development": <Web sx={{ color: "#6366f1" }} />,
-  "Backend Development": <Build sx={{ color: "#6366f1" }} />,
-  "Tools & Frameworks": <Settings sx={{ color: "#6366f1" }} />,
-  "Office & Productivity": <Apps sx={{ color: "#6366f1" }} />,
-  Applications: <Apps sx={{ color: "#6366f1" }} />,
-  Frameworks: <Layers sx={{ color: "#6366f1" }} />,
+  "Computer Skills": <Apps sx={{ color: "#6366f1" }} />,
+  "Language Skills": <Web sx={{ color: "#6366f1" }} />,
+  "Soft Skills": <Work sx={{ color: "#6366f1" }} />,
 };
 
 /* ---------------- helpers ---------------- */

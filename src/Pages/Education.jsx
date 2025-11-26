@@ -17,46 +17,42 @@ import {
 /* ---------- data ---------- */
 const educationData = [
   {
-    image: "https://static.sliit.lk/wp-content/uploads/2018/03/SLIIT-malabe.jpg",
-    title: "BSc in Information Technology",
-    institution: "SLIIT University",
-    duration: "2021 - Present",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Penn_State_Nittany_Lion.svg/1200px-Penn_State_Nittany_Lion.svg.png",
+    title: "Bachelor of Science in Electrical Engineering",
+    institution: "Pennsylvania State University",
+    location: "University Park, PA",
+    duration: "Expected Graduation 2029",
+    gpa: "4.0",
   },
   {
-    image: "https://www.allceylon.lk/images/location/2016/03/University-of-Colombo-1457752778.jpeg",
-    title: "Diploma in Information Technology",
-    institution: "University of Colombo IHRA Institute",
-    duration: "2019 - 2021",
+    image: "https://gateway.lk/wp-content/uploads/2019/08/gateway-logo.png",
+    title: "High School Education (Grades 4-12)",
+    institution: "Gateway College Colombo",
+    location: "Sri Jayewardenepura Kotte, Sri Lanka",
+    duration: "Completed 2025",
+    gpa: "4.0 (Unweighted)",
   },
   {
-    image: "https://www.allceylon.lk/images/location/2016/03/University-of-Colombo-1457752778.jpeg",
-    title: "Diploma in English",
-    institution: "University of Colombo IHRA Institute",
-    duration: "2019 - 2021",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/SAT_Logo.svg/1200px-SAT_Logo.svg.png",
+    title: "SAT 2024",
+    institution: "Standardized Test Scores",
+    results: "Composite: 1530 • Math: 780 • Reading and Writing: 730",
   },
   {
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbcp6T7wv621yJ4mzM7_oRyTncpQ_7bQBqQ&s",
-    title: "Certificate of Project Management Foundation",
-    institution: "University of Moratuwa - Faculty of Computing",
-    duration: "2024",
+    image: "https://gateway.lk/wp-content/uploads/2019/08/gateway-logo.png",
+    title: "Edexcel Advanced Level",
+    institution: "Gateway College Colombo",
+    location: "Sri Jayewardenepura Kotte, Sri Lanka",
+    results: "Mathematics (A*), Physics (A), Chemistry (A)",
+    duration: "2025",
   },
   {
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbcp6T7wv621yJ4mzM7_oRyTncpQ_7bQBqQ&s",
-    title: "Certificate of Web Development Foundation",
-    institution: "University of Moratuwa - Faculty of Computing",
-    duration: "2024",
-  },
-  {
-    image: "https://tcnbandara.me/assets/img/education/GCE.jpg",
-    title: "GCE Advanced Level Exam / Technology Stream",
-    institution: "Mahinda Rajapaksha College - Homagama",
-    results: "ICT - C, ET - C, SFT - S, English - C",
-  },
-  {
-    image: "https://tcnbandara.me/assets/img/education/GCE.jpg",
-    title: "GCE Ordinary Level Exam - 2018",
-    institution: "Mahinda Rajapaksha College - Homagama",
-    results: "Maths - A, ICT - A, Science - B, English - C",
+    image: "https://gateway.lk/wp-content/uploads/2019/08/gateway-logo.png",
+    title: "Edexcel International GCSE",
+    institution: "Gateway College Colombo",
+    location: "Sri Jayewardenepura Kotte, Sri Lanka",
+    results: "Mathematics (A*), Physics (A*), Chemistry (A*), Biology (A*), English Language (A), English Literature (A), Sinhala (A), Combined Science (A*A*)",
+    duration: "2023",
   },
 ];
 
@@ -137,6 +133,16 @@ function EducationCard({ item }) {
         <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.85)", mt: 0.5 }}>
           {item.institution}
         </Typography>
+        {item.location && (
+          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)", mt: 0.5 }}>
+            📍 {item.location}
+          </Typography>
+        )}
+        {item.gpa && (
+          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.85)", mt: 0.75, fontWeight: 600 }}>
+            🎓 GPA: {item.gpa}
+          </Typography>
+        )}
         {item.duration && (
           <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)", mt: 0.75 }}>
             📅 {item.duration}

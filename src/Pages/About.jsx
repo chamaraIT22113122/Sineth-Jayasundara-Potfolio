@@ -47,7 +47,7 @@ const useInterests = () =>
       {
         icon: <IoGameController />,
         color: "#6366f1",
-        title: "Gaming",
+        title: "Game Design",
         skills: [
           "Game Design",
           "Godot Engine",

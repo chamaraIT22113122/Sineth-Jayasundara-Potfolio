@@ -13,7 +13,6 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 import NorthIcon from "@mui/icons-material/North";
@@ -21,7 +20,6 @@ import NorthIcon from "@mui/icons-material/North";
 const year = new Date().getFullYear();
 
 const social = [
-  { icon: <GitHubIcon />, href: "https://github.com/sinethjayasundera", label: "GitHub" },
   { icon: <LinkedInIcon />, href: "https://www.linkedin.com/in/sineth-jayasundera/", label: "LinkedIn" },
   { icon: <EmailIcon />, href: "mailto:Sineth.Jayasundera@gmail.com", label: "Email" },
 ];
@@ -178,8 +176,8 @@ function DesktopFooter() {
 
         {/* Bottom strip */}
         <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ pb: 1 }}>
-          <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.7)" }}>
-            © {year} Sineth Jayasundera — Electrical Engineering Student at Penn State
+          <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.5)", fontStyle: "italic" }}>
+            © Website designed and developed by EFLASH24
           </Typography>
 
           <IconButton
@@ -277,8 +275,8 @@ function MobileFooter() {
 
           {/* Bottom strip */}
           <Stack direction="row" alignItems="center" justifyContent="space-between">
-            <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.7)" }}>
-              © {year} Sineth Jayasundera
+            <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.5)", fontStyle: "italic", fontSize: "0.7rem" }}>
+              © Designed by EFLASH24
             </Typography>
             <IconButton
               aria-label="Back to top"

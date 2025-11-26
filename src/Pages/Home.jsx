@@ -11,10 +11,8 @@ import {
 } from "@mui/material";
 import {
     FaFacebook,
-    FaTwitter,
     FaLinkedin,
     FaInstagram,
-    FaGithub,
     FaYoutube,
     FaTiktok,
     FaWhatsapp,
@@ -53,10 +51,8 @@ function useTypeCycle(list, { typeMs = 45, holdMs = 1000, eraseMs = 22 } = {}) {
 
 /* ---------------- Shared social links ---------------- */
 const socialLinks = [
-    { icon: <FaGithub />, href: "https://github.com/sinethjayasundera", label: "GitHub" },
     { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/sineth-jayasundera/", label: "LinkedIn" },
     { icon: <FaFacebook />, href: "https://www.facebook.com/sineth.jayasundera", label: "Facebook" },
-    { icon: <FaTwitter />, href: "https://twitter.com/sinethjayasundera", label: "Twitter" },
     { icon: <FaInstagram />, href: "https://www.instagram.com/sineth.jayasundera/", label: "Instagram" },
     { icon: <FaWhatsapp />, href: "https://wa.me/15182439892", label: "WhatsApp" },
 ];

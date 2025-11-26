@@ -60,6 +60,12 @@ const hobbiesData = [
     color: "#6366f1",
   },
   {
+    title: "Basketball",
+    icon: <FaFutbol />,
+    description: "Playing basketball recreationally and competitively.",
+    color: "#ff8c00",
+  },
+  {
     title: "Soccer",
     icon: <FaFutbol />,
     description: "Playing and enjoying the beautiful game, both recreationally and competitively.",

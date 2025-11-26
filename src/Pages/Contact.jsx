@@ -8,7 +8,7 @@ import {
   IconButton,
   Tooltip,
 } from "@mui/material";
-import { GitHub, LinkedIn, Email, WhatsApp } from "@mui/icons-material";
+import { LinkedIn, Email, WhatsApp } from "@mui/icons-material";
 import Navbar from "../Components/Navbar";
 
 
@@ -80,32 +80,16 @@ const Contact = () => {
                   alignItems: "center",
                   }}
                 >
-                  <Tooltip title="GitHub" arrow>
-                  <IconButton
-                    component="a"
-                    href="https://github.com/Vnuja"
-                    target="_blank"
-                    sx={{
-                    color: "#fff",
-                    background: "#232323",
-                    "&:hover": { background: "#9900ffff", color: "#fff" },
-                    boxShadow: "0 2px 8px 0 #9900ffff",
-                    }}
-                    size="large"
-                  >
-                    <GitHub fontSize="inherit" />
-                  </IconButton>
-                  </Tooltip>
                   <Tooltip title="LinkedIn" arrow>
                   <IconButton
                     component="a"
-                    href="https://linkedin.com/in/vnuja"
+                    href="https://www.linkedin.com/in/sineth-jayasundera/"
                     target="_blank"
                     sx={{
-                    color: "#0066ffff",
+                    color: "#0077b5",
                     background: "#232323",
-                    "&:hover": { background: "#ffffffff", color: "#0066ffff" },
-                    boxShadow: "0 2px 8px 0 #0066ffff",
+                    "&:hover": { background: "#0077b5", color: "#fff" },
+                    boxShadow: "0 2px 8px 0 #0077b5",
                     }}
                     size="large"
                   >
@@ -115,12 +99,12 @@ const Contact = () => {
                   <Tooltip title="Email" arrow>
                   <IconButton
                     component="a"
-                    href="mailto:vinujaransith039@gmail.com"
+                    href="mailto:Sineth.Jayasundera@gmail.com"
                     sx={{
-                    color: "#ff0000ff",
+                    color: "#ea4335",
                     background: "#232323",
-                    "&:hover": { background: "#ff0000ff", color: "#fff" },
-                    boxShadow: "0 2px 8px 0 #ff0000ff",
+                    "&:hover": { background: "#ea4335", color: "#fff" },
+                    boxShadow: "0 2px 8px 0 #ea4335",
                     }}
                     size="large"
                   >
@@ -130,7 +114,7 @@ const Contact = () => {
                   <Tooltip title="WhatsApp" arrow>
                   <IconButton
                     component="a"
-                    href="https://wa.me/94769451554"
+                    href="https://wa.me/15182439892"
                     target="_blank"
                     sx={{
                     color: "#25D366",

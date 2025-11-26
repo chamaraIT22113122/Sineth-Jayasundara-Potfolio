@@ -19,12 +19,15 @@ import { NavLink, Link as RouterLink } from "react-router-dom";
 const navItems = [
   { name: "Home", path: "/home" },
   { name: "About", path: "/about" },
+  { name: "Education", path: "/education" },
   { name: "Experience", path: "/experience" },
+  { name: "Skills", path: "/skills" },
   { name: "Research", path: "/research" },
   { name: "Personal", path: "/personal" },
   { name: "Achievements", path: "/achievements" },
   // { name: "Projects", path: "/projects" },
   { name: "Resume", path: "/resume" },
+  { name: "Contact", path: "/contact" },
 ];
 
 /** helper: underline for active link */
@@ -124,31 +127,6 @@ export default function Navbar() {
                 {item.name}
               </Button>
             ))}
-
-            {/* CTA (optional, tweak as you like) */}
-            <Button
-              component={RouterLink}
-              to="/contact"
-              sx={{
-                ml: { md: 0.5, lg: 1 },
-                textTransform: "none",
-                borderRadius: 2,
-                px: 2,
-                py: 1,
-                fontWeight: 700,
-                background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-                color: '#fff',
-                boxShadow: "0 4px 16px rgba(99,102,241,0.3)",
-                transition: "all 0.3s ease",
-                "&:hover": { 
-                  opacity: 0.9, 
-                  boxShadow: "0 6px 24px rgba(99,102,241,0.5)",
-                  transform: "translateY(-1px)",
-                },
-              }}
-            >
-              Hire Me
-            </Button>
           </Box>
 
           {/* Mobile menu button */}
@@ -232,27 +210,6 @@ export default function Navbar() {
               </ListItemButton>
             ))}
           </List>
-
-          <Box sx={{ mt: "auto", p: 2 }}>
-            <Button
-              fullWidth
-              component={RouterLink}
-              to="/contact"
-              onClick={closeDrawerAndNavigate}
-              sx={{
-                textTransform: "none",
-                borderRadius: 2,
-                py: 1.25,
-                fontWeight: 700,
-                background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-                color: '#fff',
-                boxShadow: "0 4px 16px rgba(99,102,241,0.3)",
-                "&:hover": { opacity: 0.95, boxShadow: "0 6px 24px rgba(99,102,241,0.5)" },
-              }}
-            >
-              Hire Me
-            </Button>
-          </Box>
         </Box>
       </Drawer>
     </>
