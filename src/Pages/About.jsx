@@ -45,15 +45,9 @@ const useInterests = () =>
         skills: ["Model United Nations", "Public Speaking", "Diplomacy", "Team Management"],
       },
       {
-        icon: <FaCode />,
-        color: "#6366f1",
-        title: "Programming",
-        skills: ["Python", "C++", "Embedded C", "Problem Solving"],
-      },
-      {
         icon: <IoGameController />,
         color: "#6366f1",
-        title: "Game Development",
+        title: "Gaming",
         skills: [
           "Game Design",
           "Godot Engine",
@@ -61,12 +55,6 @@ const useInterests = () =>
           "Level Design",
           "Game Mechanics",
         ],
-      },
-      {
-        icon: <FaGlobeAmericas />,
-        color: "#6366f1",
-        title: "Web Development",
-        skills: ["Frontend Design", "Backend Engineering", "Full-Stack"],
       },
     ],
     []

@@ -460,7 +460,7 @@ export default function Home() {
             "Electrical Engineering Student.",
             "IoT Developer.",
             "MUN Leader.",
-            "Game Designer.",
+            "Gamer.",
             "Problem Solver.",
         ],
         []
