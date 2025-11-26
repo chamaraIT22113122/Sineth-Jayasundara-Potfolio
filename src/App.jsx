@@ -17,7 +17,7 @@ import Achievements from "./Pages/Achievements";
 const App = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      <Router>
+      <Router basename="/Sineth-Jayasundara-Potfolio">
         <Navbar />
         <div style={{ flex: 1 }}>
           <Routes>
