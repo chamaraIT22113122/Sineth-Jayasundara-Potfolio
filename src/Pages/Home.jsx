@@ -108,7 +108,6 @@ function DesktopHome({ typed }) {
                         "radial-gradient(1200px 700px at 75% 15%, rgba(99,102,241,0.15), rgba(139,92,246,0.08) 50%, transparent 70%), linear-gradient(135deg, #0c0a1f 0%, #1a0f2e 50%, #0c0a1f 100%)",
                     color: "#fff",
                     overflow: "hidden",
-                    position: "relative",
                     "&::before": {
                         content: '""',
                         position: "absolute",
