@@ -139,7 +139,7 @@ function SectionHeader({ title, subtitle, icon }) {
             width: 56,
             height: 56,
             borderRadius: "14px",
-            background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+            background: "linear-gradient(135deg, #22d3ee, #22d3ee)",
             color: "#fff",
             fontSize: 28,
             mb: 1,
@@ -153,7 +153,7 @@ function SectionHeader({ title, subtitle, icon }) {
         sx={{
           fontWeight: 900,
           letterSpacing: 0.5,
-          background: "linear-gradient(135deg, #fff 0%, #8b5cf6 100%)",
+          background: "linear-gradient(135deg, #fff 0%, #22d3ee 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           fontSize: { xs: "1.75rem", md: "2.2rem" },
@@ -166,7 +166,7 @@ function SectionHeader({ title, subtitle, icon }) {
           {subtitle}
         </Typography>
       )}
-      <Divider sx={{ width: 70, height: 3, bgcolor: "#8b5cf6", borderRadius: 2, mt: 1 }} />
+      <Divider sx={{ width: 70, height: 3, bgcolor: "#22d3ee", borderRadius: 2, mt: 1 }} />
     </Stack>
   );
 }
@@ -175,20 +175,25 @@ function SectionHeader({ title, subtitle, icon }) {
 function DetailedExperienceCard({ item }) {
   return (
     <Card
+      tabIndex={0}
       sx={{
-        background: "linear-gradient(135deg, rgba(35,37,38,0.95) 0%, rgba(58,61,64,0.95) 100%)",
+        background: "linear-gradient(135deg, rgba(26,26,26,0.95) 0%, rgba(32,32,32,0.95) 100%)",
         backdropFilter: "blur(10px)",
-        border: "1px solid rgba(99,102,241,0.2)",
+        border: "1px solid rgba(34,211,238,0.2)",
         borderRadius: 3,
         boxShadow: "0 10px 32px rgba(0,0,0,0.3)",
         color: "#fff",
         overflow: "hidden",
-        transition: "all 0.3s ease",
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         mb: 4,
         "&:hover": {
           transform: "translateY(-4px)",
-          boxShadow: "0 16px 48px rgba(99,102,241,0.3)",
-          borderColor: "#6366f1",
+          boxShadow: "0 16px 48px rgba(34,211,238,0.3)",
+          borderColor: "rgba(34,211,238,0.4)",
+        },
+        "&:focus-visible": {
+          outline: "3px solid #22d3ee",
+          outlineOffset: "2px",
         },
       }}
     >
@@ -236,10 +241,10 @@ function DetailedExperienceCard({ item }) {
                     label={item.type}
                     size="small"
                     sx={{
-                      bgcolor: "#6366f140",
-                      color: "#8b5cf6",
+                      bgcolor: "#22d3ee40",
+                      color: "#22d3ee",
                       fontWeight: 700,
-                      border: "1px solid #6366f160",
+                      border: "1px solid #22d3ee60",
                     }}
                   />
                   <Chip
@@ -258,7 +263,7 @@ function DetailedExperienceCard({ item }) {
                   {item.title}
                 </Typography>
 
-                <Typography variant="h6" sx={{ color: "#8b5cf6", fontWeight: 600, mb: 1 }}>
+                <Typography variant="h6" sx={{ color: "#22d3ee", fontWeight: 600, mb: 1 }}>
                   {item.company || item.organization}
                 </Typography>
 
@@ -287,7 +292,7 @@ function DetailedExperienceCard({ item }) {
                     {item.responsibilities.map((resp, idx) => (
                       <ListItem key={idx} sx={{ py: 0.5, pl: 0 }}>
                         <ListItemIcon sx={{ minWidth: 32 }}>
-                          <CheckCircle sx={{ fontSize: 18, color: "#8b5cf6" }} />
+                          <CheckCircle sx={{ fontSize: 18, color: "#22d3ee" }} />
                         </ListItemIcon>
                         <ListItemText
                           primary={resp}
@@ -307,11 +312,11 @@ function DetailedExperienceCard({ item }) {
                   sx={{
                     p: 2,
                     borderRadius: 2,
-                    bgcolor: "rgba(139,92,246,0.1)",
-                    border: "1px solid rgba(139,92,246,0.3)",
+                    bgcolor: "rgba(34,211,238,0.1)",
+                    border: "1px solid rgba(34,211,238,0.3)",
                   }}
                 >
-                  <Typography sx={{ fontWeight: 700, color: "#8b5cf6", mb: 0.5 }}>
+                  <Typography sx={{ fontWeight: 700, color: "#22d3ee", mb: 0.5 }}>
                     Impact:
                   </Typography>
                   <Typography sx={{ color: "rgba(255,255,255,0.85)", fontSize: "0.95rem" }}>
@@ -351,18 +356,23 @@ function DetailedExperienceCard({ item }) {
 function ExtracurricularCard({ item }) {
   return (
     <Card
+      tabIndex={0}
       sx={{
         height: "100%",
-        background: "linear-gradient(135deg, rgba(35,37,38,0.95) 0%, rgba(58,61,64,0.95) 100%)",
+        background: "linear-gradient(135deg, rgba(26,26,26,0.95) 0%, rgba(32,32,32,0.95) 100%)",
         backdropFilter: "blur(10px)",
-        border: "1px solid rgba(99,102,241,0.15)",
+        border: "1px solid rgba(34,211,238,0.15)",
         borderRadius: 3,
         boxShadow: "0 8px 24px rgba(0,0,0,0.25)",
-        transition: "all 0.3s ease",
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         "&:hover": {
           transform: "translateY(-6px)",
-          boxShadow: "0 12px 36px rgba(99,102,241,0.25)",
-          borderColor: "#6366f1",
+          boxShadow: "0 12px 36px rgba(34,211,238,0.25)",
+          borderColor: "rgba(34,211,238,0.4)",
+        },
+        "&:focus-visible": {
+          outline: "3px solid #22d3ee",
+          outlineOffset: "2px",
         },
       }}
     >
@@ -377,10 +387,10 @@ function ExtracurricularCard({ item }) {
               label={item.type}
               size="small"
               sx={{
-                bgcolor: "#6366f130",
-                color: "#8b5cf6",
+                bgcolor: "#22d3ee30",
+                color: "#22d3ee",
                 fontWeight: 700,
-                border: "1px solid #6366f150",
+                border: "1px solid #22d3ee50",
               }}
             />
           </Stack>
@@ -389,7 +399,7 @@ function ExtracurricularCard({ item }) {
             <Typography variant="h6" sx={{ fontWeight: 800, color: "#fff", mb: 0.5, lineHeight: 1.3 }}>
               {item.title}
             </Typography>
-            <Typography variant="body2" sx={{ color: "#8b5cf6", fontWeight: 600, mb: 0.5 }}>
+            <Typography variant="body2" sx={{ color: "#22d3ee", fontWeight: 600, mb: 0.5 }}>
               {item.organization}
             </Typography>
             <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.6)" }}>
@@ -412,7 +422,7 @@ function DesktopExperience() {
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #0c0a1f 0%, #1a0f2e 50%, #0c0a1f 100%)",
+        background: "linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #121212 100%)",
         minHeight: "100vh",
         py: 8,
         color: "#fff",
@@ -425,7 +435,7 @@ function DesktopExperience() {
             variant="h2"
             sx={{
               fontWeight: 900,
-              background: "linear-gradient(135deg, #fff 0%, #8b5cf6 50%, #6366f1 100%)",
+              background: "linear-gradient(135deg, #fff 0%, #22d3ee 50%, #22d3ee 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               fontSize: { xs: "2.5rem", md: "3.5rem" },
@@ -436,7 +446,7 @@ function DesktopExperience() {
           <Typography variant="h6" sx={{ color: "rgba(255,255,255,0.7)", maxWidth: 700 }}>
             Work experience, community service, and leadership roles
           </Typography>
-          <Divider sx={{ width: 100, height: 4, bgcolor: "#8b5cf6", borderRadius: 2, mt: 2 }} />
+          <Divider sx={{ width: 100, height: 4, bgcolor: "#22d3ee", borderRadius: 2, mt: 2 }} />
         </Stack>
 
         {/* Work Experience Section */}
@@ -488,7 +498,7 @@ function MobileExperience() {
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #0c0a1f 0%, #1a0f2e 50%, #0c0a1f 100%)",
+        background: "linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #121212 100%)",
         minHeight: "100vh",
         py: 6,
         color: "#fff",
@@ -501,7 +511,7 @@ function MobileExperience() {
             variant="h3"
             sx={{
               fontWeight: 900,
-              background: "linear-gradient(135deg, #fff 0%, #8b5cf6 50%, #6366f1 100%)",
+              background: "linear-gradient(135deg, #fff 0%, #22d3ee 50%, #22d3ee 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               fontSize: { xs: "2rem", sm: "2.5rem" },
@@ -512,7 +522,7 @@ function MobileExperience() {
           <Typography variant="body1" sx={{ color: "rgba(255,255,255,0.7)", fontSize: "0.95rem" }}>
             Professional work, service, and leadership
           </Typography>
-          <Divider sx={{ width: 80, height: 3, bgcolor: "#8b5cf6", borderRadius: 2, mt: 1 }} />
+          <Divider sx={{ width: 80, height: 3, bgcolor: "#22d3ee", borderRadius: 2, mt: 1 }} />
         </Stack>
 
         {/* Work Experience */}

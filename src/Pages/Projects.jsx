@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import {
   Box,
   Container,
@@ -22,6 +22,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { ProjectCardSkeleton } from "../Components/ui/SkeletonLoaders";
 
 /* ---------------- data (yours) ---------------- */
 const projectData = [
@@ -55,10 +56,10 @@ const categories = ["All", "Web", "Mobile", "UI/UX", "Graphic Design"];
 function SectionHeader({ title }) {
   return (
     <Stack alignItems="center" sx={{ textAlign: "center" }}>
-      <Typography variant="h3" sx={{ fontWeight: 900, letterSpacing: 0.5, color: "#6366f1", fontSize: { xs: "1.9rem", md: "2.4rem" } }}>
+      <Typography variant="h3" sx={{ fontWeight: 900, letterSpacing: 0.5, color: "#22d3ee", fontSize: { xs: "1.9rem", md: "2.4rem" } }}>
         {title}
       </Typography>
-      <Box sx={{ width: 70, height: 3, bgcolor: "#6366f1", borderRadius: 2, mt: 1, mb: 3 }} />
+      <Box sx={{ width: 70, height: 3, bgcolor: "#22d3ee", borderRadius: 2, mt: 1, mb: 3 }} />
     </Stack>
   );
 }
@@ -80,11 +81,11 @@ function CategoryFilter({ value, onChange, dense = false }) {
             borderRadius: 5,
             px: dense ? 1.5 : 2.5,
             py: dense ? 0.5 : 0.75,
-            borderColor: "#6366f1",
-            color: value === c ? "#fff" : "#6366f1",
-            bgcolor: value === c ? "linear-gradient(90deg,#6366f1,#8b5cf6)" : "transparent",
+            borderColor: "#22d3ee",
+            color: value === c ? "#fff" : "#22d3ee",
+            bgcolor: value === c ? "linear-gradient(90deg,#22d3ee,#22d3ee)" : "transparent",
             "&.Mui-selected": {
-              bgcolor: "linear-gradient(90deg,#6366f1,#8b5cf6)",
+              bgcolor: "linear-gradient(90deg,#22d3ee,#22d3ee)",
               color: "#fff",
               borderColor: "transparent",
             },
@@ -116,17 +117,34 @@ function ProjectCard({ project, onOpen }) {
   return (
     <Card
       onClick={onOpen}
+      tabIndex={0}
+      role="button"
+      aria-label={`View ${project.title} project details`}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onOpen();
+        }
+      }}
       sx={{
         height: "100%",
         cursor: "pointer",
-        background: "linear-gradient(135deg,#232526 0%,#3a3d40 100%)",
+        background: "linear-gradient(135deg,#121212 0%,#202020 100%)",
         color: "#fff",
         borderRadius: 3,
-        border: "1px solid rgba(255,255,255,0.12)",
+        border: "1px solid rgba(34,211,238,0.2)",
         boxShadow: "0 10px 28px rgba(0,0,0,0.25)",
         overflow: "hidden",
-        transition: "transform .25s ease, box-shadow .25s ease",
-        "&:hover": { transform: "translateY(-6px)", boxShadow: "0 18px 40px rgba(199,0,57,0.25)" },
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "&:hover": { 
+          transform: "translateY(-6px)", 
+          boxShadow: "0 18px 40px rgba(34,211,238,0.3)",
+          border: "1px solid rgba(34,211,238,0.4)"
+        },
+        "&:focus-visible": {
+          outline: "3px solid #22d3ee",
+          outlineOffset: "2px",
+        },
       }}
     >
       <Box sx={{ position: "relative" }}>
@@ -152,11 +170,11 @@ function ProjectCard({ project, onOpen }) {
         />
       </Box>
 
-      <CardContent sx={{ p: 1 }}>
-        <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#ff7ca0" }}>
+      <CardContent sx={{ p: 2.5 }}>
+        <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#22d3ee", mb: 1 }}>
           {project.title}
         </Typography>
-        <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.8)", mt: 0.5, minHeight: 40 }}>
+        <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.8)", lineHeight: 1.6, minHeight: 40 }}>
           {project.description?.length > 90 ? `${project.description.slice(0, 90)}…` : project.description || project.type}
         </Typography>
       </CardContent>
@@ -178,7 +196,7 @@ function ProjectDialog({ project, open, onClose }) {
       aria-labelledby="project-title"
       PaperProps={{
         sx: {
-          background: "linear-gradient(135deg,#232526 0%,#414345 100%)",
+          background: "linear-gradient(135deg,#121212 0%,#414345 100%)",
           color: "#fff",
           borderRadius: 3,
           border: "1px solid rgba(255,255,255,0.2)",
@@ -255,9 +273,9 @@ function ProjectDialog({ project, open, onClose }) {
                       borderRadius: "50%",
                       mx: 0.5,
                       cursor: "pointer",
-                      bgcolor: i === index ? "#6366f1" : "#fff",
+                      bgcolor: i === index ? "#22d3ee" : "#fff",
                       opacity: i === index ? 1 : 0.5,
-                      border: "1px solid #6366f1",
+                      border: "1px solid #22d3ee",
                     }}
                   />
                 ))}
@@ -269,7 +287,7 @@ function ProjectDialog({ project, open, onClose }) {
         {/* text */}
         <Typography sx={{ color: "rgba(255,255,255,0.85)" }}>{project?.description}</Typography>
         <Typography sx={{ mt: 1.5, color: "rgba(255,255,255,0.75)" }}>
-          Type: <b style={{ color: "#6366f1" }}>{project?.type}</b>
+          Type: <b style={{ color: "#22d3ee" }}>{project?.type}</b>
         </Typography>
 
         <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ mt: 2 }}>
@@ -280,7 +298,7 @@ function ProjectDialog({ project, open, onClose }) {
               textTransform: "none",
               borderRadius: 2,
               px: 2.5,
-              bgcolor: "linear-gradient(90deg,#6366f1,#8b5cf6)",
+              bgcolor: "linear-gradient(90deg,#22d3ee,#22d3ee)",
               color: "#fff",
               fontWeight: 700,
               boxShadow: "0 2px 8px rgba(199,0,57,0.45)",
@@ -295,8 +313,8 @@ function ProjectDialog({ project, open, onClose }) {
             sx={{
               textTransform: "none",
               borderRadius: 2,
-              borderColor: "#6366f1",
-              color: "#6366f1",
+              borderColor: "#22d3ee",
+              color: "#22d3ee",
               fontWeight: 700,
             }}
           >
@@ -309,7 +327,7 @@ function ProjectDialog({ project, open, onClose }) {
 }
 
 /* ---------------- desktop view ---------------- */
-function DesktopProjects({ filtered, onSelect, selectedCategory, setSelectedCategory }) {
+function DesktopProjects({ filtered, onSelect, selectedCategory, setSelectedCategory, loading }) {
   return (
     <Box
       sx={{
@@ -324,11 +342,15 @@ function DesktopProjects({ filtered, onSelect, selectedCategory, setSelectedCate
         <CategoryFilter value={selectedCategory} onChange={setSelectedCategory} />
 
         <Grid container spacing={3} sx={{ mt: 2 }}>
-          {filtered.map((p, i) => (
-            <Grid key={i} item xs={12} sm={6} md={4} lg={3}>
-              <ProjectCard project={p} onOpen={() => onSelect(p)} />
-            </Grid>
-          ))}
+          {loading ? (
+            <ProjectCardSkeleton count={8} />
+          ) : (
+            filtered.map((p, i) => (
+              <Grid key={i} item xs={12} sm={6} md={4} lg={3}>
+                <ProjectCard project={p} onOpen={() => onSelect(p)} />
+              </Grid>
+            ))
+          )}
         </Grid>
       </Container>
     </Box>
@@ -336,7 +358,7 @@ function DesktopProjects({ filtered, onSelect, selectedCategory, setSelectedCate
 }
 
 /* ---------------- mobile view ---------------- */
-function MobileProjects({ filtered, onSelect, selectedCategory, setSelectedCategory }) {
+function MobileProjects({ filtered, onSelect, selectedCategory, setSelectedCategory, loading }) {
   return (
     <Box
       sx={{
@@ -351,11 +373,15 @@ function MobileProjects({ filtered, onSelect, selectedCategory, setSelectedCateg
         <CategoryFilter value={selectedCategory} onChange={setSelectedCategory} dense />
 
         <Grid container spacing={2.5} sx={{ mt: 1 }}>
-          {filtered.map((p, i) => (
-            <Grid key={i} item xs={12} sm={6}>
-              <ProjectCard project={p} onOpen={() => onSelect(p)} />
-            </Grid>
-          ))}
+          {loading ? (
+            <ProjectCardSkeleton count={6} />
+          ) : (
+            filtered.map((p, i) => (
+              <Grid key={i} item xs={12} sm={6}>
+                <ProjectCard project={p} onOpen={() => onSelect(p)} />
+              </Grid>
+            ))
+          )}
         </Grid>
       </Container>
     </Box>
@@ -369,6 +395,13 @@ export default function Projects() {
 
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate initial load
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
 
   const filtered = useMemo(
     () => (selectedCategory === "All" ? projectData : projectData.filter((p) => p.category === selectedCategory)),
@@ -383,6 +416,7 @@ export default function Projects() {
           onSelect={setSelectedProject}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          loading={loading}
         />
       ) : (
         <DesktopProjects
@@ -390,6 +424,7 @@ export default function Projects() {
           onSelect={setSelectedProject}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          loading={loading}
         />
       )}
 

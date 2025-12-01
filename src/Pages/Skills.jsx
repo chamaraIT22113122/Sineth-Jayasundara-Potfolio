@@ -53,10 +53,10 @@ const skillCategories = {
 };
 
 const categoryIcons = {
-  "Programming Languages": <Code sx={{ color: "#6366f1" }} />,
-  "Computer Skills": <Apps sx={{ color: "#6366f1" }} />,
-  "Language Skills": <Web sx={{ color: "#6366f1" }} />,
-  "Soft Skills": <Work sx={{ color: "#6366f1" }} />,
+  "Programming Languages": <Code sx={{ color: "#22d3ee" }} />,
+  "Computer Skills": <Apps sx={{ color: "#22d3ee" }} />,
+  "Language Skills": <Web sx={{ color: "#22d3ee" }} />,
+  "Soft Skills": <Work sx={{ color: "#22d3ee" }} />,
 };
 
 /* ---------------- helpers ---------------- */
@@ -102,13 +102,13 @@ function SectionHeader() {
         sx={{
           fontWeight: 900,
           letterSpacing: 0.5,
-          color: "#6366f1",
+          color: "#22d3ee",
           fontSize: { xs: "1.9rem", md: "2.3rem" },
         }}
       >
         My Expert Area
       </Typography>
-      <Box sx={{ width: 72, height: 3, bgcolor: "#6366f1", borderRadius: 2, mt: 1 }} />
+      <Box sx={{ width: 72, height: 3, bgcolor: "#22d3ee", borderRadius: 2, mt: 1 }} />
     </Stack>
   );
 }
@@ -116,7 +116,7 @@ function SectionHeader() {
 function CategoryTitle({ name }) {
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
-      {categoryIcons[name] || <Layers sx={{ color: "#6366f1" }} />}
+      {categoryIcons[name] || <Layers sx={{ color: "#22d3ee" }} />}
       <Typography sx={{ fontWeight: 800, color: "rgb(250,202,216)", letterSpacing: 0.2 }}>{name}</Typography>
     </Stack>
   );
@@ -147,15 +147,24 @@ function SearchBar({ search, setSearch, total }) {
         placeholder="Search skills…"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        aria-label="Search skills"
         sx={{
           maxWidth: { xs: "100%", sm: 520 },
           background: "rgba(255,255,255,0.08)",
           input: { color: "#fff" },
+          "& .MuiOutlinedInput-root": {
+            "&:focus-within": {
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#22d3ee",
+                borderWidth: "2px",
+              },
+            },
+          },
         }}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <SearchIcon sx={{ color: "#6366f1" }} />
+              <SearchIcon sx={{ color: "#22d3ee" }} />
             </InputAdornment>
           ),
           endAdornment: search ? (
@@ -211,17 +220,27 @@ function DesktopSkills({ filtered, search }) {
                   <Card
                     key={cat}
                     elevation={0}
+                    tabIndex={0}
                     sx={{
-                      background: "rgba(30,30,30,0.85)",
-                      border: "1px solid rgba(255,255,255,0.12)",
+                      background: "rgba(26,26,26,0.85)",
+                      border: "1px solid rgba(34,211,238,0.2)",
                       borderRadius: 3,
                       backdropFilter: "blur(6px)",
+                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                      "&:hover": {
+                        borderColor: "rgba(34,211,238,0.4)",
+                        boxShadow: "0 8px 24px rgba(34,211,238,0.15)",
+                      },
+                      "&:focus-visible": {
+                        outline: "3px solid #22d3ee",
+                        outlineOffset: "2px",
+                      },
                     }}
                   >
                     <CardContent sx={{ p: 2.5 }}>
                       <Stack spacing={1}>
                         <CategoryTitle name={cat} />
-                        <Divider sx={{ bgcolor: "#6366f1", opacity: 0.8, borderRadius: 1, my: 1 }} />
+                        <Divider sx={{ bgcolor: "#22d3ee", opacity: 0.8, borderRadius: 1, my: 1 }} />
                         <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
                           {filtered[cat].map((s, i) => (
                             <SkillPill key={i} label={s} search={search} />
@@ -261,10 +280,14 @@ function MobileSkills({ filtered, search }) {
               key={cat}
               disableGutters
               sx={{
-                background: "rgba(30,30,30,0.9)",
-                border: "1px solid rgba(255,255,255,0.12)",
+                background: "rgba(26,26,26,0.9)",
+                border: "1px solid rgba(34,211,238,0.2)",
                 borderRadius: 2,
                 "&:before": { display: "none" },
+                "&:focus-within": {
+                  outline: "2px solid #22d3ee",
+                  outlineOffset: "1px",
+                },
               }}
               defaultExpanded={idx < 2} // expand first two by default
             >
@@ -272,7 +295,7 @@ function MobileSkills({ filtered, search }) {
                 <CategoryTitle name={cat} />
               </AccordionSummary>
               <AccordionDetails>
-                <Divider sx={{ bgcolor: "#6366f1", opacity: 0.8, borderRadius: 1, mb: 1.25 }} />
+                <Divider sx={{ bgcolor: "#22d3ee", opacity: 0.8, borderRadius: 1, mb: 1.25 }} />
                 <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
                   {filtered[cat].map((s, i) => (
                     <SkillPill key={i} label={s} search={search} />

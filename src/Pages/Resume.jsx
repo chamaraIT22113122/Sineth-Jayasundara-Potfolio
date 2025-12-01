@@ -35,7 +35,7 @@ function DesktopResume() {
             sx={{
               fontWeight: 800,
               letterSpacing: 1,
-              color: "#6366f1",
+              color: "#22d3ee",
               mb: 2,
             }}
           >
@@ -77,7 +77,7 @@ function DesktopResume() {
               size="large"
               startIcon={<DownloadIcon />}
               sx={{
-                background: "linear-gradient(90deg,#6366f1,#8b5cf6)",
+                background: "linear-gradient(90deg,#22d3ee,#22d3ee)",
                 color: "#fff",
                 fontWeight: "bold",
                 borderRadius: "25px",
@@ -115,10 +115,10 @@ function MobileResume() {
         py: 6,
       }}
     >
-      <PictureAsPdfIcon sx={{ fontSize: 64, color: "#6366f1", mb: 2 }} />
+      <PictureAsPdfIcon sx={{ fontSize: 64, color: "#22d3ee", mb: 2 }} />
       <Typography
         variant="h4"
-        sx={{ fontWeight: 800, color: "#6366f1", mb: 2 }}
+        sx={{ fontWeight: 800, color: "#22d3ee", mb: 2 }}
       >
         My Resume
       </Typography>
@@ -137,7 +137,7 @@ function MobileResume() {
         variant="contained"
         startIcon={<DownloadIcon />}
         sx={{
-          background: "linear-gradient(90deg,#6366f1,#8b5cf6)",
+          background: "linear-gradient(90deg,#22d3ee,#22d3ee)",
           color: "#fff",
           fontWeight: "bold",
           borderRadius: "25px",

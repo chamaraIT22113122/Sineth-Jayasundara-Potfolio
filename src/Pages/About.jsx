@@ -23,7 +23,7 @@ const useInterests = () =>
     () => [
       {
         icon: <MdElectricalServices />,
-        color: "#6366f1",
+        color: "#22d3ee",
         title: "Electrical Engineering",
         skills: [
           "Circuit Design",
@@ -34,19 +34,19 @@ const useInterests = () =>
       },
       {
         icon: <IoTerminal />,
-        color: "#6366f1",
+        color: "#22d3ee",
         title: "IoT Development",
         skills: ["Smart Home Systems", "Sensor Integration", "Cloud Connectivity", "Energy Monitoring"],
       },
       {
         icon: <FaBrain />,
-        color: "#6366f1",
+        color: "#22d3ee",
         title: "Leadership & MUN",
         skills: ["Model United Nations", "Public Speaking", "Diplomacy", "Team Management"],
       },
       {
         icon: <IoGameController />,
-        color: "#6366f1",
+        color: "#22d3ee",
         title: "Game Design",
         skills: [
           "Game Design",
@@ -69,14 +69,14 @@ function SectionHeader({ label, sub, center = false }) {
         sx={{
           fontWeight: 800,
           letterSpacing: 1,
-          color: "#6366f1",
+          color: "#22d3ee",
           mb: 0.75,
           fontSize: { xs: "1.8rem", sm: "2rem", md: "2.2rem" },
         }}
       >
         {label}
       </Typography>
-      <Divider sx={{ width: 64, height: 3, bgcolor: "#6366f1", borderRadius: 2, mb: 1.5 }} />
+      <Divider sx={{ width: 64, height: 3, bgcolor: "#22d3ee", borderRadius: 2, mb: 1.5 }} />
       {sub ? (
         <Typography sx={{ color: "rgba(255,255,255,0.75)", maxWidth: 720, fontSize: { xs: "0.98rem", md: "1.05rem" } }}>
           {sub}
@@ -90,14 +90,23 @@ function SectionHeader({ label, sub, center = false }) {
 function InterestCard({ item }) {
   return (
     <Card
+      tabIndex={0}
       sx={{
         height: "100%",
-        background: "linear-gradient(135deg, #232526 0%, #3a3d40 100%)",
-        border: "1px solid rgba(255,255,255,0.08)",
+        background: "linear-gradient(135deg, #121212 0%, #202020 100%)",
+        border: "1px solid rgba(34,211,238,0.2)",
         borderRadius: 3,
         boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
-        transition: "transform .25s ease, box-shadow .25s ease",
-        "&:hover": { transform: "translateY(-6px)", boxShadow: "0 18px 40px rgba(199,0,57,0.18)" },
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "&:hover": { 
+          transform: "translateY(-6px)", 
+          boxShadow: "0 18px 40px rgba(34,211,238,0.25)",
+          borderColor: "rgba(34,211,238,0.4)"
+        },
+        "&:focus-visible": {
+          outline: "3px solid #22d3ee",
+          outlineOffset: "2px",
+        },
         mx: "auto", // center horizontally in the grid cell
         display: "flex",
         flexDirection: "column",
@@ -125,7 +134,7 @@ function InterestCard({ item }) {
           <Typography variant="h6" sx={{ color: "#fff", fontWeight: 700, mt: 1, textAlign: "center" }}>
             {item.title}
           </Typography>
-          <Divider sx={{ width: 32, my: 1, bgcolor: "#6366f1", borderRadius: 2 }} />
+          <Divider sx={{ width: 32, my: 1, bgcolor: "#22d3ee", borderRadius: 2 }} />
 
           <Stack direction="row" flexWrap="wrap" justifyContent="center" spacing={0.75} useFlexGap sx={{ mt: 0.5 }}>
             {item.skills.map((s, i) => (
@@ -170,8 +179,8 @@ function DesktopAbout() {
 
         
         {/* <Stack spacing={1.5} sx={{ mt: 3, color: "#ccc", maxWidth: 900 }}>
-          <Divider sx={{ bgcolor: "#6366f1", borderRadius: 2, opacity: 0.7 }} />
-          <Chip label="Achievements" sx={{ bgcolor: "#6366f1", color: "#fff", fontWeight: 700, width: "fit-content" }} />
+          <Divider sx={{ bgcolor: "#22d3ee", borderRadius: 2, opacity: 0.7 }} />
+          <Chip label="Achievements" sx={{ bgcolor: "#22d3ee", color: "#fff", fontWeight: 700, width: "fit-content" }} />
           <Typography sx={{ fontSize: "1.05rem" }}>
             ✅ Built smart systems for homes, vehicles, and computers — integrating technology into everyday life.
           </Typography>
@@ -191,8 +200,8 @@ function DesktopAbout() {
 
         {/* Personal Interests */}
         <Stack spacing={1.5} sx={{ mt: 6, color: "#ccc", maxWidth: 900 }}>
-          <Divider sx={{ bgcolor: "#6366f1", borderRadius: 2, opacity: 0.7 }} />
-          <Chip label="Personal Interests" sx={{ bgcolor: "#6366f1", color: "#fff", fontWeight: 700, width: "fit-content" }} />
+          <Divider sx={{ bgcolor: "#22d3ee", borderRadius: 2, opacity: 0.7 }} />
+          <Chip label="Personal Interests" sx={{ bgcolor: "#22d3ee", color: "#fff", fontWeight: 700, width: "fit-content" }} />
           <Typography sx={{ fontSize: "1.05rem" }}>
             Outside academics I enjoy <strong>game design</strong> using <strong>Godot</strong> and <strong>Unity</strong>, 
             playing <strong>soccer</strong> and <strong>swimming</strong>. I also love <strong>traveling</strong> and 
@@ -225,8 +234,8 @@ function MobileAbout() {
         />
 
         {/* <Stack spacing={1.5} sx={{ mt: 3, color: "#ccc", maxWidth: 900 }}>
-          <Divider sx={{ bgcolor: "#6366f1", borderRadius: 2, opacity: 0.7 }} />
-          <Chip label="Achievements" sx={{ bgcolor: "#6366f1", color: "#fff", fontWeight: 700, width: "fit-content" }} />
+          <Divider sx={{ bgcolor: "#22d3ee", borderRadius: 2, opacity: 0.7 }} />
+          <Chip label="Achievements" sx={{ bgcolor: "#22d3ee", color: "#fff", fontWeight: 700, width: "fit-content" }} />
           <Typography sx={{ fontSize: "1.05rem" }}>
             ✅ Built smart systems for homes, vehicles, and computers — integrating technology into everyday life.
           </Typography>
@@ -246,8 +255,8 @@ function MobileAbout() {
 
         {/* Personal Interests */}
         <Stack spacing={1.25} sx={{ mt: 5, color: "#ccc" }}>
-          <Divider sx={{ bgcolor: "#6366f1", borderRadius: 2, opacity: 0.7 }} />
-          <Chip label="Personal Interests" sx={{ bgcolor: "#6366f1", color: "#fff", fontWeight: 700, alignSelf: "flex-start" }} />
+          <Divider sx={{ bgcolor: "#22d3ee", borderRadius: 2, opacity: 0.7 }} />
+          <Chip label="Personal Interests" sx={{ bgcolor: "#22d3ee", color: "#fff", fontWeight: 700, alignSelf: "flex-start" }} />
           <Typography sx={{ fontSize: "1.02rem" }}>
             Outside academics I enjoy <strong>game design</strong> using <strong>Godot</strong> and <strong>Unity</strong>, 
             playing <strong>soccer</strong> and <strong>swimming</strong>. I also love <strong>traveling</strong>.

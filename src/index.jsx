@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 import App from "./App.jsx";
 
@@ -11,7 +12,9 @@ function mount() {
   }
   ReactDOM.createRoot(el).render(
     <React.StrictMode>
-      <App />
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
     </React.StrictMode>
   );
 }
@@ -22,8 +25,8 @@ if (document.readyState === "loading") {
 } else {
   mount();
 }
-document.body.style.backgroundColor = '#0c0a1f';
- document.body.style.background = 'radial-gradient(1200px 700px at 50% 0%, rgba(99,102,241,0.12), rgba(139,92,246,0.08) 40%, transparent 70%), linear-gradient(135deg, #0c0a1f 0%, #1a0f2e 50%, #0c0a1f 100%)'
+document.body.style.backgroundColor = '#121212';
+ document.body.style.background = 'radial-gradient(1200px 700px at 50% 0%, rgba(34,211,238,0.12), rgba(34,211,238,0.08) 40%, transparent 70%), linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #121212 100%)'
                
 
 

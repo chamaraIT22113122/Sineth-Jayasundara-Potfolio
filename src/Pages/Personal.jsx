@@ -57,7 +57,7 @@ const hobbiesData = [
     icon: <IoGameController />,
     description: "Creating engaging games using Godot and Unity engines, focusing on gameplay mechanics and level design.",
     tools: ["Godot", "Unity"],
-    color: "#6366f1",
+    color: "#22d3ee",
   },
   {
     title: "Basketball",
@@ -89,13 +89,13 @@ function SectionHeader({ title, subtitle }) {
         sx={{
           fontWeight: 900,
           letterSpacing: 0.5,
-          color: "#6366f1",
+          color: "#22d3ee",
           fontSize: { xs: "1.9rem", md: "2.4rem" },
         }}
       >
         {title}
       </Typography>
-      <Divider sx={{ width: 70, height: 3, bgcolor: "#6366f1", borderRadius: 2, mt: 1, mb: 2 }} />
+      <Divider sx={{ width: 70, height: 3, bgcolor: "#22d3ee", borderRadius: 2, mt: 1, mb: 2 }} />
       {subtitle && (
         <Typography sx={{ color: "rgba(255,255,255,0.75)", maxWidth: 720, fontSize: { xs: "0.98rem", md: "1.05rem" } }}>
           {subtitle}
@@ -110,7 +110,7 @@ function TravelCard({ item }) {
     <Card
       sx={{
         height: "100%",
-        background: "linear-gradient(135deg, #232526 0%, #3a3d40 100%)",
+        background: "linear-gradient(135deg, #121212 0%, #202020 100%)",
         border: "1px solid rgba(255,255,255,0.12)",
         color: "#fff",
         borderRadius: 3,
@@ -157,7 +157,7 @@ function HobbyCard({ item }) {
     <Card
       sx={{
         height: "100%",
-        background: "linear-gradient(135deg, #232526 0%, #3a3d40 100%)",
+        background: "linear-gradient(135deg, #121212 0%, #202020 100%)",
         border: "1px solid rgba(255,255,255,0.12)",
         color: "#fff",
         borderRadius: 3,

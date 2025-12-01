@@ -27,12 +27,8 @@ const social = [
 const quickLinks = [
   { label: "Home", href: "/home" },
   { label: "About", href: "/about" },
-  { label: "Experience", href: "/experience" },
-  { label: "Research", href: "/research" },
-  { label: "Personal", href: "/personal" },
-  { label: "Achievements", href: "/achievements" },
-  { label: "Resume", href: "/resume" },
-  { label: "Contact", href: "https://wa.me/15182439892" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function SocialRow({ size = "medium" }) {
@@ -69,8 +65,8 @@ function DesktopFooter() {
         pt: 6,
         pb: 2,
         background:
-          "linear-gradient(180deg, rgba(12,10,31,0.95) 0%, rgba(26,15,46,0.98) 50%, rgba(12,10,31,1) 100%)",
-        borderTop: "1px solid rgba(99,102,241,0.2)",
+          "linear-gradient(180deg, rgba(18,18,18,0.95) 0%, rgba(26,26,26,0.98) 50%, rgba(18,18,18,1) 100%)",
+        borderTop: "1px solid rgba(34,211,238,0.2)",
         boxShadow: "0 -4px 24px rgba(0,0,0,0.2)",
         color: "#fff",
       }}
@@ -85,7 +81,7 @@ function DesktopFooter() {
                 sx={{ 
                   fontWeight: 800, 
                   letterSpacing: 0.3,
-                  background: "linear-gradient(135deg, #fff 0%, #8b5cf6 100%)",
+                  background: "linear-gradient(135deg, #fff 0%, #22d3ee 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
@@ -142,7 +138,7 @@ function DesktopFooter() {
               <MLink href="https://wa.me/15182439892" target="_blank" rel="noopener" color="inherit" underline="hover">
                 WhatsApp: +1 518-243-9892
               </MLink>
-              <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)" }}>
+              <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.87)" }}>
                 Available for collaborations and opportunities
               </Typography>
               <Button
@@ -154,15 +150,19 @@ function DesktopFooter() {
                   px: 2.5,
                   py: 1,
                   fontWeight: 700,
-                  background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+                  background: "linear-gradient(135deg, #22d3ee, #22d3ee)",
                   color: "#fff",
                   alignSelf: "start",
-                  boxShadow: "0 4px 16px rgba(99,102,241,0.3)",
+                  boxShadow: "0 4px 16px rgba(34,211,238,0.3)",
                   transition: "all 0.3s ease",
                   "&:hover": { 
                     opacity: 0.95,
-                    boxShadow: "0 6px 24px rgba(99,102,241,0.5)",
-                    transform: "translateY(-2px)",
+                    boxShadow: "0 6px 24px rgba(34,211,238,0.5)",
+                    transform: "translateY(-4px)",
+                  },
+                  "&:focus-visible": {
+                    outline: "3px solid rgba(34,211,238,0.8)",
+                    outlineOffset: "3px",
                   },
                 }}
               >
@@ -175,24 +175,10 @@ function DesktopFooter() {
         <Divider sx={{ my: 3, borderColor: "rgba(255,255,255,0.08)" }} />
 
         {/* Bottom strip */}
-        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ pb: 1 }}>
+        <Stack direction="row" alignItems="center" justifyContent="center" sx={{ pb: 1 }}>
           <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.5)", fontStyle: "italic" }}>
             © Website designed and developed by EFLASH24
           </Typography>
-
-          <IconButton
-            aria-label="Back to top"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            sx={{
-              color: "#fff",
-              border: "1px solid rgba(255,255,255,0.18)",
-              borderRadius: 2,
-              p: 1,
-              "&:hover": { bgcolor: "rgba(255,255,255,0.08)" },
-            }}
-          >
-            <NorthIcon fontSize="small" />
-          </IconButton>
         </Stack>
       </Container>
     </Box>
@@ -210,8 +196,8 @@ function MobileFooter() {
         pb: 2,
         px: 2,
         background:
-          "linear-gradient(180deg, rgba(12,10,31,0.95) 0%, rgba(26,15,46,0.98) 50%, rgba(12,10,31,1) 100%)",
-        borderTop: "1px solid rgba(99,102,241,0.2)",
+          "linear-gradient(180deg, rgba(18,18,18,0.95) 0%, rgba(26,26,26,0.98) 50%, rgba(18,18,18,1) 100%)",
+        borderTop: "1px solid rgba(34,211,238,0.2)",
         color: "#fff",
       }}
     >
@@ -221,13 +207,13 @@ function MobileFooter() {
           <Stack spacing={0.5} alignItems="flex-start">
             <Typography variant="h6" sx={{ 
               fontWeight: 800,
-              background: "linear-gradient(135deg, #fff 0%, #8b5cf6 100%)",
+              background: "linear-gradient(135deg, #fff 0%, #22d3ee 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}>
               Sineth.Jayasundera
             </Typography>
-            <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)" }}>
+            <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.87)" }}>
               Electrical Engineering Student.
             </Typography>
             <Stack direction="row" spacing={1}>
@@ -265,7 +251,7 @@ function MobileFooter() {
             <MLink href="https://wa.me/15182439892" target="_blank" rel="noopener" color="inherit" underline="hover">
               WhatsApp: +1 518-243-9892
             </MLink>
-            <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.7)" }}>
+            <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.8)" }}>
               Available for collaborations
             </Typography>
             <SocialRow size="small" />
@@ -274,24 +260,10 @@ function MobileFooter() {
           <Divider sx={{ my: 1.5, borderColor: "rgba(255,255,255,0.08)" }} />
 
           {/* Bottom strip */}
-          <Stack direction="row" alignItems="center" justifyContent="space-between">
+          <Stack direction="row" alignItems="center" justifyContent="center">
             <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.5)", fontStyle: "italic", fontSize: "0.7rem" }}>
               © Designed by EFLASH24
             </Typography>
-            <IconButton
-              aria-label="Back to top"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              sx={{
-                color: "#fff",
-                border: "1px solid rgba(255,255,255,0.18)",
-                borderRadius: 2,
-                p: 0.5,
-                "&:hover": { bgcolor: "rgba(255,255,255,0.08)" },
-              }}
-              size="small"
-            >
-              <NorthIcon fontSize="inherit" />
-            </IconButton>
           </Stack>
         </Stack>
       </Container>

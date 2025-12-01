@@ -75,86 +75,225 @@ function SectionHeader({ title }) {
         sx={{
           fontWeight: 900,
           letterSpacing: 0.5,
-          color: "#6366f1",
+          color: "#22d3ee",
           fontSize: { xs: "1.9rem", md: "2.4rem" },
         }}
       >
         {title}
       </Typography>
-      <Divider sx={{ width: 70, height: 3, bgcolor: "#6366f1", borderRadius: 2, mt: 1, mb: 3 }} />
+      <Divider sx={{ width: 70, height: 3, bgcolor: "#22d3ee", borderRadius: 2, mt: 1, mb: 3 }} />
     </Stack>
   );
 }
 
-function EducationCard({ item }) {
+function EducationCard({ item, index }) {
   const badge = typeFromTitle(item.title);
+  const isLeft = index % 2 === 0;
+  
   return (
-    <Card
+    <Box
       sx={{
-        height: "100%",
-        background: "linear-gradient(135deg, #232526 0%, #3a3d40 100%)",
-        border: "1px solid rgba(255,255,255,0.12)",
-        color: "#fff",
-        borderRadius: 3,
-        boxShadow: "0 10px 28px rgba(0,0,0,0.25)",
-        overflow: "hidden",
-        transition: "transform .25s ease, box-shadow .25s ease",
-        "&:hover": { transform: "translateY(-6px)", boxShadow: "0 18px 40px rgba(199,0,57,0.25)" },
+        display: "flex",
+        flexDirection: isLeft ? "row" : "row-reverse",
+        gap: 3,
+        mb: 4,
+        animation: `fadeInSlide 0.8s ease-out ${index * 0.15}s both`,
+        "@keyframes fadeInSlide": {
+          "0%": { 
+            opacity: 0, 
+            transform: isLeft ? "translateX(-50px)" : "translateX(50px)"
+          },
+          "100%": { 
+            opacity: 1, 
+            transform: "translateX(0)"
+          },
+        },
       }}
     >
-      <Box sx={{ position: "relative" }}>
-        <CardMedia
-          component="img"
-          image={item.image}
-          alt={item.institution}
-          loading="lazy"
-          height="160"
-          sx={{ objectFit: "cover", filter: "saturate(0.9) contrast(1.05)" }}
-        />
-        <Chip
-          label={badge}
-          size="small"
+      {/* Timeline connector */}
+      <Box
+        sx={{
+          display: { xs: "none", md: "flex" },
+          flexDirection: "column",
+          alignItems: "center",
+          position: "relative",
+        }}
+      >
+        <Box
           sx={{
-            position: "absolute",
-            top: 12,
-            left: 12,
-            bgcolor: "rgba(0,0,0,0.6)",
-            color: "#fff",
-            border: "1px solid rgba(255,255,255,0.2)",
-            backdropFilter: "blur(4px)",
+            width: 16,
+            height: 16,
+            borderRadius: "50%",
+            bgcolor: "#22d3ee",
+            border: "4px solid rgba(18,18,18,1)",
+            boxShadow: "0 0 20px rgba(34,211,238,0.6)",
+            zIndex: 2,
+            mt: 2,
           }}
         />
+        {index < educationData.length - 1 && (
+          <Box
+            sx={{
+              width: 2,
+              flex: 1,
+              background: "linear-gradient(180deg, #22d3ee 0%, rgba(34,211,238,0.3) 100%)",
+              mt: 1,
+            }}
+          />
+        )}
       </Box>
 
-      <CardContent sx={{ p: 2.25 }}>
-        <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#fff", lineHeight: 1.25 }}>
-          {item.title}
-        </Typography>
-        <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.85)", mt: 0.5 }}>
-          {item.institution}
-        </Typography>
-        {item.location && (
-          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)", mt: 0.5 }}>
-            📍 {item.location}
-          </Typography>
-        )}
-        {item.gpa && (
-          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.85)", mt: 0.75, fontWeight: 600 }}>
-            🎓 GPA: {item.gpa}
-          </Typography>
-        )}
-        {item.duration && (
-          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)", mt: 0.75 }}>
-            📅 {item.duration}
-          </Typography>
-        )}
-        {item.results && (
-          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)", mt: 0.75 }}>
-            🏆 {item.results}
-          </Typography>
-        )}
-      </CardContent>
-    </Card>
+      {/* Card content */}
+      <Card
+        sx={{
+          flex: 1,
+          background: "linear-gradient(145deg, rgba(18,18,18,0.95) 0%, rgba(26,26,26,0.98) 100%)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid rgba(34,211,238,0.2)",
+          color: "#fff",
+          borderRadius: 4,
+          boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+          overflow: "hidden",
+          position: "relative",
+          transition: "all .4s cubic-bezier(0.4, 0, 0.2, 1)",
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: isLeft 
+              ? "radial-gradient(circle at top left, rgba(34,211,238,0.08) 0%, transparent 70%)"
+              : "radial-gradient(circle at top right, rgba(34,211,238,0.08) 0%, transparent 70%)",
+            pointerEvents: "none",
+            opacity: 0,
+            transition: "opacity 0.4s ease",
+          },
+          "&:hover": { 
+            transform: "translateY(-8px)", 
+            boxShadow: "0 24px 48px rgba(34,211,238,0.25), 0 0 80px rgba(34,211,238,0.15)",
+            border: "1px solid rgba(34,211,238,0.5)",
+            "&::after": { opacity: 1 },
+          },
+        }}
+      >
+        <Grid container>
+          <Grid item xs={12} md={5}>
+            <Box sx={{ position: "relative", overflow: "hidden", height: { xs: 180, md: "100%" }, minHeight: { md: 250 } }}>
+              <CardMedia
+                component="img"
+                image={item.image}
+                alt={item.institution}
+                loading="lazy"
+                sx={{ 
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  padding: 2,
+                  filter: "brightness(0.9) saturate(1.2)",
+                  transition: "all 0.5s ease",
+                }}
+              />
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: "linear-gradient(180deg, transparent 0%, rgba(18,18,18,0.7) 100%)",
+                  pointerEvents: "none",
+                }}
+              />
+              <Chip
+                label={badge}
+                size="small"
+                sx={{
+                  position: "absolute",
+                  top: 16,
+                  right: 16,
+                  bgcolor: "#22d3ee",
+                  color: "#000",
+                  fontWeight: 800,
+                  fontSize: "0.7rem",
+                  letterSpacing: 0.5,
+                  textTransform: "uppercase",
+                  border: "none",
+                  px: 1.5,
+                  boxShadow: "0 4px 16px rgba(34,211,238,0.5)",
+                }}
+              />
+            </Box>
+          </Grid>
+
+          <Grid item xs={12} md={7}>
+            <CardContent sx={{ p: 3, height: "100%" }}>
+              <Typography 
+                variant="h6" 
+                sx={{ 
+                  fontWeight: 700, 
+                  color: "#fff", 
+                  lineHeight: 1.4,
+                  mb: 1,
+                  fontSize: "1.1rem",
+                }}
+              >
+                {item.title}
+              </Typography>
+              <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)", mb: 2, fontWeight: 500 }}>
+                {item.institution}
+              </Typography>
+              
+              <Stack spacing={1.5}>
+                {item.location && (
+                  <Box sx={{ display: "flex", alignItems: "start", gap: 1 }}>
+                    <Typography sx={{ fontSize: "1rem", minWidth: "20px" }}>📍</Typography>
+                    <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.6 }}>
+                      {item.location}
+                    </Typography>
+                  </Box>
+                )}
+                
+                {item.gpa && (
+                  <Box 
+                    sx={{ 
+                      p: 1.5, 
+                      bgcolor: "rgba(34,211,238,0.08)", 
+                      borderRadius: 2, 
+                      border: "1px solid rgba(34,211,238,0.3)",
+                      borderLeft: "4px solid #22d3ee",
+                    }}
+                  >
+                    <Typography variant="body2" sx={{ color: "#22d3ee", fontWeight: 700, fontSize: "0.95rem" }}>
+                      🎓 GPA: {item.gpa}
+                    </Typography>
+                  </Box>
+                )}
+                
+                {item.duration && (
+                  <Box sx={{ display: "flex", alignItems: "start", gap: 1 }}>
+                    <Typography sx={{ fontSize: "1rem", minWidth: "20px" }}>📅</Typography>
+                    <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.6 }}>
+                      {item.duration}
+                    </Typography>
+                  </Box>
+                )}
+                
+                {item.results && (
+                  <Box sx={{ display: "flex", alignItems: "start", gap: 1 }}>
+                    <Typography sx={{ fontSize: "1rem", minWidth: "20px" }}>🏆</Typography>
+                    <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.6 }}>
+                      {item.results}
+                    </Typography>
+                  </Box>
+                )}
+              </Stack>
+            </CardContent>
+          </Grid>
+        </Grid>
+      </Card>
+    </Box>
   );
 }
 
@@ -171,13 +310,11 @@ function DesktopEducation() {
       <Container maxWidth="lg">
         <SectionHeader title="Education" />
 
-        <Grid container spacing={3}>
+        <Box sx={{ mt: 6 }}>
           {educationData.map((edu, i) => (
-            <Grid item xs={12} sm={6} md={4} key={i}>
-              <EducationCard item={edu} />
-            </Grid>
+            <EducationCard key={i} item={edu} index={i} />
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );
@@ -196,14 +333,11 @@ function MobileEducation() {
       <Container maxWidth="md">
         <SectionHeader title="Education" />
 
-        {/* 2-wide grid on phones for compact scan; falls to 1 at very small widths via xs=12 */}
-        <Grid container spacing={2.5}>
+        <Box sx={{ mt: 4 }}>
           {educationData.map((edu, i) => (
-            <Grid item xs={12} sm={6} key={i}>
-              <EducationCard item={edu} />
-            </Grid>
+            <EducationCard key={i} item={edu} index={i} />
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );

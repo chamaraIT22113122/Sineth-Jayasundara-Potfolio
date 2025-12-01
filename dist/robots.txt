@@ -1,0 +1,9 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://chamaraIT22113122.github.io/Sineth-Jayasundara-Potfolio/sitemap.xml
+
+# Crawl delay (optional, 1 second)
+Crawl-delay: 1

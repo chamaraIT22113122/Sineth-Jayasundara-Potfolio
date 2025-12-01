@@ -17,6 +17,8 @@ import {
     FaTiktok,
     FaWhatsapp,
 } from "react-icons/fa";
+import { FadeIn, SlideInLeft, SlideInRight } from "../Components/ScrollAnimations";
+import StatsCounter from "../Components/StatsCounter";
 
 import cv from "../Files/Sineth Jayasundera.pdf";
 import vinuja from "../Images/man.png";
@@ -62,8 +64,13 @@ function Socials({ direction = "row" }) {
     const iconSx = {
         color: "#fff",
         fontSize: "1.25rem",
-        transition: "transform .2s, opacity .2s",
-        "&:hover": { transform: "translateY(-2px)", opacity: 0.9 },
+        transition: "all 0.3s ease",
+        "&:hover": { transform: "translateY(-4px)", opacity: 0.9 },
+        "&:focus-visible": {
+            outline: "2px solid rgba(34,211,238,0.8)",
+            outlineOffset: "4px",
+            borderRadius: "4px",
+        },
     };
 
     return (
@@ -101,7 +108,7 @@ function DesktopHome({ typed }) {
                     display: "grid",
                     alignItems: "center",
                     background:
-                        "radial-gradient(1200px 700px at 75% 15%, rgba(99,102,241,0.15), rgba(139,92,246,0.08) 50%, transparent 70%), linear-gradient(135deg, #0c0a1f 0%, #1a0f2e 50%, #0c0a1f 100%)",
+                        "radial-gradient(1200px 700px at 75% 15%, rgba(34,211,238,0.15), rgba(34,211,238,0.08) 50%, transparent 70%), linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #121212 100%)",
                     color: "#fff",
                     overflow: "hidden",
                     "&::before": {
@@ -111,7 +118,7 @@ function DesktopHome({ typed }) {
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        background: "radial-gradient(circle at 20% 80%, rgba(139,92,246,0.06), transparent 40%)",
+                        background: "radial-gradient(circle at 20% 80%, rgba(34,211,238,0.06), transparent 40%)",
                         pointerEvents: "none",
                     },
                 }}
@@ -140,15 +147,15 @@ function DesktopHome({ typed }) {
                     width: 280,
                     height: 280,
                     borderRadius: "50%",
-                    background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%)",
+                    background: "linear-gradient(135deg, #22d3ee 0%, #22d3ee 50%, #22d3ee 100%)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     fontSize: 120,
                     fontWeight: 900,
                     color: "#fff",
-                    boxShadow: "0 25px 70px rgba(99,102,241,0.6), 0 0 120px rgba(139,92,246,0.4), inset 0 -20px 40px rgba(0,0,0,0.2)",
-                    border: "4px solid rgba(167,139,250,0.3)",
+                    boxShadow: "0 25px 70px rgba(34,211,238,0.6), 0 0 120px rgba(34,211,238,0.4), inset 0 -20px 40px rgba(0,0,0,0.2)",
+                    border: "4px solid rgba(103,232,249,0.3)",
                     opacity: 0.95,
                     animation: "float 6s ease-in-out infinite",
                     "@keyframes float": {
@@ -161,7 +168,8 @@ function DesktopHome({ typed }) {
             </Box>
 
             <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-                <Stack spacing={3} sx={{ pl: 9, pr: "26vw" }}>
+                <SlideInLeft>
+                  <Stack spacing={3} sx={{ pl: 9, pr: "26vw" }}>
                     <Typography
                         variant="h1"
                         sx={{
@@ -171,7 +179,7 @@ function DesktopHome({ typed }) {
                             fontSize: { md: "2rem" },
                         }}
                     >
-                        Hi <Box component="span" sx={{ color: "#8b5cf6" }}>I'm</Box>
+                        Hi <Box component="span" sx={{ color: "#22d3ee" }}>I'm</Box>
                     </Typography>
                     <Typography
                         variant="h1"
@@ -180,10 +188,16 @@ function DesktopHome({ typed }) {
                             letterSpacing: 0.4,
                             lineHeight: 1.05,
                             fontSize: { md: "4.6rem" },
-                            background: "linear-gradient(135deg, #fff 0%, #8b5cf6 100%)",
+                            background: "linear-gradient(135deg, #fff 0%, #22d3ee 50%, #fff 100%)",
+                            backgroundSize: "200% auto",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                             backgroundClip: "text",
+                            animation: "shimmer 3s linear infinite",
+                            "@keyframes shimmer": {
+                                "0%": { backgroundPosition: "0% center" },
+                                "100%": { backgroundPosition: "200% center" },
+                            },
                         }}
                     >
                         Sineth Jayasundera
@@ -194,7 +208,7 @@ function DesktopHome({ typed }) {
                         <Box
                             component="span"
                             sx={{
-                                background: "linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa)",
+                                background: "linear-gradient(90deg, #22d3ee, #22d3ee, #22d3ee)",
                                 WebkitBackgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
                                 fontWeight: 700,
@@ -223,20 +237,44 @@ function DesktopHome({ typed }) {
                             component="a"
                             href={cv}
                             download
+                            aria-label="Download my resume PDF"
                             sx={{
                                 textTransform: "none",
                                 borderRadius: 2,
                                 px: 3,
                                 py: 1.25,
                                 fontWeight: 700,
-                                background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-                                color: "#fff",
-                                boxShadow: "0 6px 24px rgba(99,102,241,0.5), 0 0 40px rgba(139,92,246,0.2)",
-                                transition: "all 0.3s ease",
+                                fontSize: "1rem",
+                                background: "linear-gradient(135deg, #22d3ee, #06b6d4)",
+                                color: "#000",
+                                boxShadow: "0 6px 24px rgba(34,211,238,0.4), 0 0 40px rgba(34,211,238,0.15)",
+                                position: "relative",
+                                overflow: "hidden",
+                                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                                "&::before": {
+                                    content: '""',
+                                    position: "absolute",
+                                    top: 0,
+                                    left: "-100%",
+                                    width: "100%",
+                                    height: "100%",
+                                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
+                                    transition: "left 0.5s ease",
+                                },
                                 "&:hover": { 
-                                    background: "linear-gradient(135deg, #5b21b6, #6366f1)", 
-                                    boxShadow: "0 8px 32px rgba(99,102,241,0.7), 0 0 60px rgba(139,92,246,0.4)",
-                                    transform: "translateY(-2px)",
+                                    background: "linear-gradient(135deg, #06b6d4, #22d3ee)", 
+                                    boxShadow: "0 8px 32px rgba(34,211,238,0.6), 0 0 60px rgba(34,211,238,0.3)",
+                                    transform: "translateY(-3px) scale(1.02)",
+                                    "&::before": {
+                                        left: "100%",
+                                    },
+                                },
+                                "&:active": {
+                                    transform: "translateY(-1px) scale(0.98)",
+                                },
+                                "&:focus-visible": {
+                                    outline: "3px solid #fff",
+                                    outlineOffset: "3px",
                                 },
                             }}
                         >
@@ -244,21 +282,49 @@ function DesktopHome({ typed }) {
                         </Button>
                         <Button
                             href="/contact"
+                            aria-label="Navigate to contact page"
                             sx={{
                                 textTransform: "none",
                                 borderRadius: 2,
                                 px: 3,
                                 py: 1.25,
                                 fontWeight: 700,
-                                bgcolor: "rgba(139,92,246,0.15)",
-                                color: "#a78bfa",
-                                border: "2px solid rgba(139,92,246,0.5)",
+                                fontSize: "1rem",
+                                bgcolor: "rgba(34,211,238,0.08)",
+                                color: "#22d3ee",
+                                border: "2px solid rgba(34,211,238,0.4)",
                                 backdropFilter: "blur(10px)",
-                                transition: "all 0.3s ease",
+                                position: "relative",
+                                overflow: "hidden",
+                                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                                "&::before": {
+                                    content: '""',
+                                    position: "absolute",
+                                    top: "50%",
+                                    left: "50%",
+                                    width: 0,
+                                    height: 0,
+                                    borderRadius: "50%",
+                                    background: "rgba(34,211,238,0.2)",
+                                    transform: "translate(-50%, -50%)",
+                                    transition: "width 0.6s ease, height 0.6s ease",
+                                },
                                 "&:hover": { 
-                                    bgcolor: "rgba(139,92,246,0.25)", 
-                                    borderColor: "#8b5cf6",
-                                    transform: "translateY(-2px)",
+                                    bgcolor: "rgba(34,211,238,0.15)", 
+                                    borderColor: "#22d3ee",
+                                    transform: "translateY(-3px) scale(1.02)",
+                                    boxShadow: "0 8px 24px rgba(34,211,238,0.3)",
+                                    "&::before": {
+                                        width: "300px",
+                                        height: "300px",
+                                    },
+                                },
+                                "&:active": {
+                                    transform: "translateY(-1px) scale(0.98)",
+                                },
+                                "&:focus-visible": {
+                                    outline: "3px solid #22d3ee",
+                                    outlineOffset: "3px",
                                 },
                             }}
                         >
@@ -266,6 +332,7 @@ function DesktopHome({ typed }) {
                         </Button>
                     </Stack>
                 </Stack>
+                </SlideInLeft>
             </Container>
         </Box>
     );
@@ -277,11 +344,16 @@ function MobileHome({ typed, direction = "coloumn", }) {
     const iconSx = {
         position: "relative",
         pr: "50vw",
-        pl: 0,            // keep clear of portrait
+        pl: 0,
         color: "#fff",
         fontSize: "1.5rem",
-        transition: "transform .2s, color .2s",
-        "&:hover": { transform: "translateY(-2px)", color: "#a78bfa" },
+        transition: "all 0.3s ease",
+        "&:hover": { transform: "translateY(-4px)", color: "#22d3ee" },
+        "&:focus-visible": {
+            outline: "2px solid rgba(34,211,238,0.8)",
+            outlineOffset: "4px",
+            borderRadius: "4px",
+        },
     };
     return (
         <Box
@@ -290,7 +362,7 @@ function MobileHome({ typed, direction = "coloumn", }) {
                 width: "100%",
                 minHeight: "calc(100vh - 56px)",
                 background:
-                    "radial-gradient(800px 500px at 60% 10%, rgba(99,102,241,0.15), rgba(139,92,246,0.08) 50%, transparent 70%), linear-gradient(135deg, #0c0a1f 0%, #1a0f2e 50%, #0c0a1f 100%)",
+                    "radial-gradient(800px 500px at 60% 10%, rgba(34,211,238,0.15), rgba(34,211,238,0.08) 50%, transparent 70%), linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #121212 100%)",
                 color: "#fff",
                 overflow: "hidden",
             }}
@@ -303,20 +375,20 @@ function MobileHome({ typed, direction = "coloumn", }) {
             <Box
                 sx={{
                     position: "absolute",
-                    bottom: 40,
-                    right: 20,
-                    width: 200,
-                    height: 200,
+                    bottom: { xs: 20, sm: 40 },
+                    right: { xs: 10, sm: 20 },
+                    width: { xs: 140, sm: 180, md: 200 },
+                    height: { xs: 140, sm: 180, md: 200 },
                     borderRadius: "50%",
-                    background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%)",
+                    background: "linear-gradient(135deg, #22d3ee 0%, #22d3ee 50%, #22d3ee 100%)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: 80,
+                    fontSize: { xs: 56, sm: 70, md: 80 },
                     fontWeight: 900,
                     color: "#fff",
-                    boxShadow: "0 20px 60px rgba(99,102,241,0.6), 0 0 100px rgba(139,92,246,0.4)",
-                    border: "3px solid rgba(167,139,250,0.3)",
+                    boxShadow: "0 20px 60px rgba(34,211,238,0.6), 0 0 100px rgba(34,211,238,0.4)",
+                    border: "3px solid rgba(103,232,249,0.3)",
                     opacity: 0.95,
                     animation: "float 6s ease-in-out infinite",
                     "@keyframes float": {
@@ -334,7 +406,8 @@ function MobileHome({ typed, direction = "coloumn", }) {
                 sx={{
                     position: "relative",
                     zIndex: 1,
-                    pr: "3vw",             // keep clear of portrait
+                    pr: { xs: "35vw", sm: "25vw", md: "3vw" },
+                    pb: { xs: 20, sm: 24, md: 4 },
                     pt: 4,
                 }}
             >
@@ -348,7 +421,7 @@ function MobileHome({ typed, direction = "coloumn", }) {
                             fontSize: { md: "2rem" },
                         }}
                     >
-                        Hi <Box component="span" sx={{ color: "#8b5cf6" }}>I'm</Box>
+                        Hi <Box component="span" sx={{ color: "#22d3ee" }}>I'm</Box>
                     </Typography>
                     <Typography
                         variant="h3"
@@ -357,7 +430,7 @@ function MobileHome({ typed, direction = "coloumn", }) {
                             fontSize: "2.2rem", 
                             lineHeight: 1.15, 
                             textAlign: "left",
-                            background: "linear-gradient(135deg, #fff 0%, #8b5cf6 100%)",
+                            background: "linear-gradient(135deg, #fff 0%, #22d3ee 100%)",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                             backgroundClip: "text",
@@ -366,10 +439,10 @@ function MobileHome({ typed, direction = "coloumn", }) {
                         Sineth Jayasundera
                     </Typography>
 
-                    <Typography sx={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.86)", textAlign: "left" }}>
+                    <Typography sx={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.92)", textAlign: "left" }}>
                         I'm a{" "}
                         <Box component="span" sx={{ 
-                            background: "linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa)",
+                            background: "linear-gradient(90deg, #22d3ee, #22d3ee, #22d3ee)",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                             fontWeight: 700 
@@ -397,10 +470,18 @@ function MobileHome({ typed, direction = "coloumn", }) {
                                 px: 2.5,
                                 py: 1.1,
                                 fontWeight: 800,
-                                background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+                                background: "linear-gradient(135deg, #22d3ee, #22d3ee)",
                                 color: "#fff",
-                                boxShadow: "0 6px 20px rgba(99,102,241,0.4)",
-                                "&:hover": { opacity: 0.95, boxShadow: "0 8px 28px rgba(99,102,241,0.6)" },
+                                boxShadow: "0 6px 20px rgba(34,211,238,0.4)",
+                                transition: "all 0.3s ease",
+                                "&:hover": { 
+                                    transform: "translateY(-4px)",
+                                    boxShadow: "0 8px 28px rgba(34,211,238,0.6)" 
+                                },
+                                "&:focus-visible": {
+                                    outline: "3px solid rgba(34,211,238,0.8)",
+                                    outlineOffset: "3px",
+                                },
                             }}
                         >
                             Download Resume
@@ -416,7 +497,15 @@ function MobileHome({ typed, direction = "coloumn", }) {
                                 bgcolor: "rgba(255,255,255,0.08)",
                                 color: "#fff",
                                 border: "1px solid rgba(255,255,255,0.12)",
-                                "&:hover": { bgcolor: "rgba(255,255,255,0.14)" },
+                                transition: "all 0.3s ease",
+                                "&:hover": { 
+                                    bgcolor: "rgba(255,255,255,0.14)",
+                                    transform: "translateY(-4px)",
+                                },
+                                "&:focus-visible": {
+                                    outline: "3px solid rgba(34,211,238,0.8)",
+                                    outlineOffset: "3px",
+                                },
                             }}
                         >
                             View Projects
@@ -440,7 +529,6 @@ function MobileHome({ typed, direction = "coloumn", }) {
                 </Stack>
 
             </Container>
-
         </Box>
     );
 }

@@ -5,7 +5,6 @@ import {
   Grid,
   Card,
   CardContent,
-  CardMedia,
   Typography,
   Chip,
   Stack,
@@ -15,11 +14,13 @@ import {
 } from "@mui/material";
 import { MdElectricalServices } from "react-icons/md";
 import { IoTerminal } from "react-icons/io5";
+import { LazyImage } from "../Components/LoadingSpinner";
+import { FadeIn, StaggerChildren } from "../Components/ScrollAnimations";
 
 /* ---------- data ---------- */
 const ResearchData = [
   {
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800",
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect fill='%236366f1' width='800' height='600'/%3E%3Ctext x='50%25' y='50%25' font-size='64' fill='white' text-anchor='middle' dominant-baseline='middle'%3E⚡%3C/text%3E%3C/svg%3E",
     title: "Smart Energy Reader",
     organization: "Flix 11",
     duration: "Summer 2023 - Summer 2024",
@@ -28,7 +29,7 @@ const ResearchData = [
     icon: <MdElectricalServices />,
   },
   {
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect fill='%238b5cf6' width='800' height='600'/%3E%3Ctext x='50%25' y='50%25' font-size='64' fill='white' text-anchor='middle' dominant-baseline='middle'%3E🏠%3C/text%3E%3C/svg%3E",
     title: "IoT-Based Smart Home Products",
     organization: "Flix 11",
     duration: "Summer 2023 - Summer 2024",
@@ -47,13 +48,13 @@ function SectionHeader({ title, subtitle }) {
         sx={{
           fontWeight: 900,
           letterSpacing: 0.5,
-          color: "#6366f1",
+          color: "#22d3ee",
           fontSize: { xs: "1.9rem", md: "2.4rem" },
         }}
       >
         {title}
       </Typography>
-      <Divider sx={{ width: 70, height: 3, bgcolor: "#6366f1", borderRadius: 2, mt: 1, mb: 2 }} />
+      <Divider sx={{ width: 70, height: 3, bgcolor: "#22d3ee", borderRadius: 2, mt: 1, mb: 2 }} />
       {subtitle && (
         <Typography sx={{ color: "rgba(255,255,255,0.75)", maxWidth: 720, fontSize: { xs: "0.98rem", md: "1.05rem" } }}>
           {subtitle}
@@ -66,25 +67,35 @@ function SectionHeader({ title, subtitle }) {
 function ResearchCard({ item }) {
   return (
     <Card
+      tabIndex={0}
       sx={{
         height: "100%",
-        background: "linear-gradient(135deg, #232526 0%, #3a3d40 100%)",
-        border: "1px solid rgba(255,255,255,0.12)",
+        background: "linear-gradient(135deg, #121212 0%, #202020 100%)",
+        border: "1px solid rgba(34,211,238,0.2)",
         color: "#fff",
         borderRadius: 3,
         boxShadow: "0 10px 28px rgba(0,0,0,0.25)",
         overflow: "hidden",
-        transition: "transform .25s ease, box-shadow .25s ease",
-        "&:hover": { transform: "translateY(-6px)", boxShadow: "0 18px 40px rgba(199,0,57,0.25)" },
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "&:hover": { 
+          transform: "translateY(-6px)", 
+          boxShadow: "0 18px 40px rgba(34,211,238,0.3)",
+          borderColor: "rgba(34,211,238,0.4)"
+        },
+        "&:focus-visible": {
+          outline: "3px solid #22d3ee",
+          outlineOffset: "2px",
+        },
       }}
+      component="article"
+      role="article"
+      aria-label={`Research project: ${item.title}`}
     >
       <Box sx={{ position: "relative", height: 200, bgcolor: "rgba(255,255,255,0.03)" }}>
-        <CardMedia
-          component="img"
-          image={item.image}
-          alt={item.title}
-          loading="lazy"
-          sx={{ height: "100%", objectFit: "cover", filter: "saturate(0.95) contrast(1.05)" }}
+        <LazyImage
+          src={item.image}
+          alt={`${item.title} project image`}
+          sx={{ height: "100%", filter: "saturate(0.95) contrast(1.05)" }}
         />
         <Box
           sx={{
@@ -98,16 +109,17 @@ function ResearchCard({ item }) {
             borderRadius: "12px",
             background: "rgba(0,0,0,0.6)",
             backdropFilter: "blur(4px)",
-            color: "#6366f1",
+            color: "#22d3ee",
             fontSize: 24,
           }}
+          aria-hidden="true"
         >
           {item.icon}
         </Box>
       </Box>
 
       <CardContent sx={{ p: 2.5 }}>
-        <Typography variant="h6" sx={{ fontWeight: 800, color: "#fff", lineHeight: 1.25, mb: 0.5 }}>
+        <Typography variant="h6" component="h3" sx={{ fontWeight: 800, color: "#fff", lineHeight: 1.25, mb: 0.5 }}>
           {item.title}
         </Typography>
         <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.85)", mb: 0.5 }}>
@@ -131,7 +143,7 @@ function ResearchCard({ item }) {
               size="small"
               sx={{
                 bgcolor: "#2b2e31",
-                color: "#6366f1",
+                color: "#22d3ee",
                 border: "1px solid rgba(199,0,57,0.3)",
                 fontWeight: 600,
               }}
@@ -159,13 +171,15 @@ function DesktopResearch() {
           title="Research & Development" 
           subtitle="Exploring innovative solutions in IoT and electrical engineering through hands-on development and research projects."
         />
-        <Grid container spacing={3}>
-          {ResearchData.map((research, i) => (
-            <Grid item xs={12} md={6} key={i}>
-              <ResearchCard item={research} />
-            </Grid>
-          ))}
-        </Grid>
+        <StaggerChildren>
+          <Grid container spacing={3}>
+            {ResearchData.map((research, i) => (
+              <Grid item xs={12} md={6} key={i}>
+                <ResearchCard item={research} />
+              </Grid>
+            ))}
+          </Grid>
+        </StaggerChildren>
       </Container>
     </Box>
   );
@@ -187,13 +201,15 @@ function MobileResearch() {
           title="Research & Development" 
           subtitle="Exploring innovative solutions in IoT and electrical engineering."
         />
-        <Grid container spacing={2.5}>
-          {ResearchData.map((research, i) => (
-            <Grid item xs={12} key={i}>
-              <ResearchCard item={research} />
-            </Grid>
-          ))}
-        </Grid>
+        <StaggerChildren>
+          <Grid container spacing={2.5}>
+            {ResearchData.map((research, i) => (
+              <Grid item xs={12} key={i}>
+                <ResearchCard item={research} />
+              </Grid>
+            ))}
+          </Grid>
+        </StaggerChildren>
       </Container>
     </Box>
   );

@@ -31,21 +31,21 @@ const achievementsData = {
       description: "Recognized for outstanding academic achievement",
       year: "2024-2025",
       icon: <SchoolIcon />,
-      color: "#6366f1",
+      color: "#22d3ee",
     },
     {
       title: "Edexcel Academic Excellence Award",
       description: "Outstanding performance in Edexcel examinations",
       year: "2024",
       icon: <StarIcon />,
-      color: "#8b5cf6",
+      color: "#22d3ee",
     },
     {
       title: "Edexcel Advanced Level",
       description: "Mathematics (A*), Physics (A), Chemistry (A)",
       year: "2025",
       icon: <SchoolIcon />,
-      color: "#a78bfa",
+      color: "#22d3ee",
     },
   ],
   technology: [
@@ -54,14 +54,14 @@ const achievementsData = {
       description: "Recognition for excellence in ICT and technology leadership",
       year: "2025",
       icon: <AwardIcon />,
-      color: "#6366f1",
+      color: "#22d3ee",
     },
     {
       title: "Young Computer Scientist Competition Sri Lanka",
       description: "1st Place - National Level Competition",
       year: "2025",
       icon: <TrophyIcon />,
-      color: "#8b5cf6",
+      color: "#22d3ee",
     },
   ],
   modelUN: [
@@ -70,42 +70,42 @@ const achievementsData = {
       description: "Recognized as Best Chair for exceptional committee leadership",
       year: "2025",
       icon: <TrophyIcon />,
-      color: "#6366f1",
+      color: "#22d3ee",
     },
     {
       title: "Sri Lanka Model United Nations Higher Commendation Award",
       description: "Outstanding performance in committee deliberations",
       year: "2025",
       icon: <AwardIcon />,
-      color: "#8b5cf6",
+      color: "#22d3ee",
     },
     {
       title: "Sri Lanka Model United Nations Best Delegate Award",
       description: "Top delegate recognition for diplomacy and negotiation",
       year: "2024",
       icon: <TrophyIcon />,
-      color: "#a78bfa",
+      color: "#22d3ee",
     },
     {
       title: "Sri Lanka Model United Nations Best Working Paper Award",
       description: "Excellence in policy writing and research",
       year: "2024",
       icon: <AwardIcon />,
-      color: "#6366f1",
+      color: "#22d3ee",
     },
     {
       title: "Colombo Model United Nations Higher Commendation Award",
       description: "Strong performance in committee debates",
       year: "2024",
       icon: <StarIcon />,
-      color: "#8b5cf6",
+      color: "#22d3ee",
     },
     {
       title: "Colombo Model United Nations Best Crisis Delegation Award",
       description: "Outstanding crisis committee performance",
       year: "2024",
       icon: <TrophyIcon />,
-      color: "#a78bfa",
+      color: "#22d3ee",
     },
   ],
   sports: [
@@ -114,28 +114,28 @@ const achievementsData = {
       description: "Third Place - Boys Under-17",
       year: "2022",
       icon: <SportsIcon />,
-      color: "#6366f1",
+      color: "#22d3ee",
     },
     {
       title: "Age Group Relay Championships - 4x50m Freestyle Relay",
       description: "Third Place - Boys Under-17",
       year: "2022",
       icon: <SportsIcon />,
-      color: "#8b5cf6",
+      color: "#22d3ee",
     },
     {
       title: "Sri Lankan Schools' Aquatic Sports Championships",
       description: "Second Place - 200 LC Meter Freestyle",
       year: "2019",
       icon: <TrophyIcon />,
-      color: "#a78bfa",
+      color: "#22d3ee",
     },
     {
       title: "Sri Lankan Schools' Aquatic Sports Championships",
       description: "Fourth Place - 400 LC Meter Freestyle",
       year: "2019",
       icon: <StarIcon />,
-      color: "#6366f1",
+      color: "#22d3ee",
     },
   ],
   leadership: [
@@ -144,35 +144,35 @@ const achievementsData = {
       description: "Led the organization of Gateway MUN conference",
       year: "2024-2025",
       icon: <LanguageIcon />,
-      color: "#6366f1",
+      color: "#22d3ee",
     },
     {
       title: "Gateway College Colombo Deputy Head Prefect",
       description: "Student leadership and school governance",
       year: "2024-2025",
       icon: <StarIcon />,
-      color: "#8b5cf6",
+      color: "#22d3ee",
     },
     {
       title: "Gateway College Colombo ICT Society Vice President",
       description: "Led technology initiatives and ICT education programs",
       year: "2024-2025",
       icon: <AwardIcon />,
-      color: "#a78bfa",
+      color: "#22d3ee",
     },
     {
       title: "Gateway College Colombo House Captain",
       description: "House leadership and inter-house competition coordination",
       year: "2023-2024",
       icon: <StarIcon />,
-      color: "#6366f1",
+      color: "#22d3ee",
     },
     {
       title: "Gateway College Colombo Swim Team Captain",
       description: "Led competitive swim team to multiple victories",
       year: "2022-2024",
       icon: <SportsIcon />,
-      color: "#8b5cf6",
+      color: "#22d3ee",
     },
   ],
   international: [
@@ -181,7 +181,7 @@ const achievementsData = {
       description: "Represented Sri Lanka at regional ICT conference",
       year: "2025",
       icon: <GlobalIcon />,
-      color: "#6366f1",
+      color: "#22d3ee",
     },
   ],
 };
@@ -198,10 +198,10 @@ function SectionHeader({ title, subtitle, icon }) {
           width: 64,
           height: 64,
           borderRadius: "16px",
-          background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+          background: "linear-gradient(135deg, #22d3ee, #22d3ee)",
           color: "#fff",
           fontSize: 32,
-          boxShadow: "0 8px 24px rgba(99,102,241,0.4)",
+          boxShadow: "0 8px 24px rgba(34,211,238,0.4)",
         }}
       >
         {icon}
@@ -211,7 +211,7 @@ function SectionHeader({ title, subtitle, icon }) {
         sx={{
           fontWeight: 900,
           letterSpacing: 0.5,
-          background: "linear-gradient(135deg, #fff 0%, #8b5cf6 100%)",
+          background: "linear-gradient(135deg, #fff 0%, #22d3ee 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           fontSize: { xs: "1.75rem", md: "2.2rem" },
@@ -224,7 +224,7 @@ function SectionHeader({ title, subtitle, icon }) {
           {subtitle}
         </Typography>
       )}
-      <Divider sx={{ width: 80, height: 3, bgcolor: "#8b5cf6", borderRadius: 2, mt: 1 }} />
+      <Divider sx={{ width: 80, height: 3, bgcolor: "#22d3ee", borderRadius: 2, mt: 1 }} />
     </Stack>
   );
 }
@@ -237,7 +237,7 @@ function AchievementCard({ achievement }) {
         height: "100%",
         background: "linear-gradient(135deg, rgba(35,37,38,0.95) 0%, rgba(58,61,64,0.95) 100%)",
         backdropFilter: "blur(10px)",
-        border: "1px solid rgba(99,102,241,0.2)",
+        border: "1px solid rgba(34,211,238,0.2)",
         borderRadius: 3,
         boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
         transition: "all 0.3s ease",
@@ -330,7 +330,7 @@ function DesktopAchievements() {
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #0c0a1f 0%, #1a0f2e 50%, #0c0a1f 100%)",
+        background: "linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #121212 100%)",
         minHeight: "100vh",
         py: 8,
         color: "#fff",
@@ -343,7 +343,7 @@ function DesktopAchievements() {
             variant="h2"
             sx={{
               fontWeight: 900,
-              background: "linear-gradient(135deg, #fff 0%, #8b5cf6 50%, #6366f1 100%)",
+              background: "linear-gradient(135deg, #fff 0%, #22d3ee 50%, #22d3ee 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               fontSize: { xs: "2.5rem", md: "3.5rem" },
@@ -357,7 +357,7 @@ function DesktopAchievements() {
           >
             A collection of accomplishments spanning academics, leadership, athletics, and international experiences
           </Typography>
-          <Divider sx={{ width: 100, height: 4, bgcolor: "#8b5cf6", borderRadius: 2, mt: 2 }} />
+          <Divider sx={{ width: 100, height: 4, bgcolor: "#22d3ee", borderRadius: 2, mt: 2 }} />
         </Stack>
 
         {/* Achievement Categories */}
@@ -412,7 +412,7 @@ function MobileAchievements() {
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #0c0a1f 0%, #1a0f2e 50%, #0c0a1f 100%)",
+        background: "linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #121212 100%)",
         minHeight: "100vh",
         py: 6,
         color: "#fff",
@@ -425,10 +425,11 @@ function MobileAchievements() {
             variant="h3"
             sx={{
               fontWeight: 900,
-              background: "linear-gradient(135deg, #fff 0%, #8b5cf6 50%, #6366f1 100%)",
+              background: "linear-gradient(135deg, #fff 0%, #22d3ee 50%, #22d3ee 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              fontSize: { xs: "2rem", sm: "2.5rem" },
+              fontSize: { xs: "2.25rem", sm: "2.75rem", md: "3rem" },
+              lineHeight: 1.2,
             }}
           >
             Achievements
@@ -439,7 +440,7 @@ function MobileAchievements() {
           >
             Accomplishments across academics, leadership, and athletics
           </Typography>
-          <Divider sx={{ width: 80, height: 3, bgcolor: "#8b5cf6", borderRadius: 2, mt: 1 }} />
+          <Divider sx={{ width: 80, height: 3, bgcolor: "#22d3ee", borderRadius: 2, mt: 1 }} />
         </Stack>
 
         {/* Achievement Categories */}

@@ -18,15 +18,9 @@ import { NavLink, Link as RouterLink } from "react-router-dom";
 /** central nav config (edit here) */
 const navItems = [
   { name: "Home", path: "/home" },
-  { name: "About", path: "/about" },
-  { name: "Education", path: "/education" },
-  { name: "Experience", path: "/experience" },
-  { name: "Skills", path: "/skills" },
+  { name: "About Me", path: "/about" },
+  { name: "Portfolio", path: "/portfolio" },
   { name: "Research", path: "/research" },
-  { name: "Personal", path: "/personal" },
-  { name: "Achievements", path: "/achievements" },
-  // { name: "Projects", path: "/projects" },
-  { name: "Resume", path: "/resume" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -36,12 +30,15 @@ const activeStyles = {
   "&::after": {
     content: '""',
     position: "absolute",
-    left: 0,
+    left: "50%",
     bottom: -6,
-    width: "100%",
-    height: 2,
-    bgcolor: "primary.contrastText",
-    opacity: 0.9,
+    transform: "translateX(-50%)",
+    width: "60%",
+    height: 3,
+    bgcolor: "#22d3ee",
+    borderRadius: 2,
+    opacity: 1,
+    boxShadow: "0 0 8px rgba(34,211,238,0.6)",
   },
 };
 
@@ -57,14 +54,17 @@ export default function Navbar() {
   }, []);
 
   return (
-    <>      
+    <>
       <AppBar
         position="fixed"
         elevation={0}
+        component="nav"
+        role="navigation"
+        aria-label="Main navigation"
         sx={{
           backdropFilter: "saturate(180%) blur(20px)",
-          backgroundColor: "rgba(12,10,31,0.7)",
-          borderBottom: "1px solid rgba(99,102,241,0.2)",
+          backgroundColor: "rgba(18,18,18,0.85)",
+          borderBottom: "1px solid rgba(34,211,238,0.2)",
           boxShadow: "0 4px 24px rgba(0,0,0,0.2)",
         }}
       >
@@ -80,16 +80,26 @@ export default function Navbar() {
           <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
             <Typography
               variant="h6"
+              component="div"
               sx={{
                 fontWeight: 800,
                 letterSpacing: 0.4,
                 color: "primary.contrastText",
-                fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" },
+                fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.5rem" },
                 "& a": { color: "inherit", textDecoration: "none" },
                 "&:hover": { opacity: 0.9 },
+                "&:focus-within": {
+                  outline: "2px solid #22d3ee",
+                  outlineOffset: "2px",
+                  borderRadius: 1,
+                },
               }}
             >
-              <a href="https://sinethjayasundera.com" rel="noopener noreferrer">
+              <a
+                href="https://sinethjayasundera.com"
+                rel="noopener noreferrer"
+                aria-label="Sineth Jayasundera home page"
+              >
                 sinethjayasundera.com
               </a>
             </Typography>
@@ -98,7 +108,7 @@ export default function Navbar() {
           {/* Desktop nav */}
           <Box
             component="nav"
-            aria-label="primary"
+            aria-label="Primary navigation"
             sx={{
               display: { xs: "none", md: "flex" },
               alignItems: "center",
@@ -116,11 +126,25 @@ export default function Navbar() {
                   color: "primary.contrastText",
                   px: 1.5,
                   py: 1,
+                  minHeight: 44,
                   borderRadius: 1.5,
                   fontWeight: isActive ? 700 : 500,
                   textTransform: "none",
-                  "&:hover": { bgcolor: "rgba(255,255,255,0.08)" },
-                  ...(isActive ? activeStyles : {}),
+                  fontSize: { md: "0.95rem", lg: "1rem" },
+                  transition: "all 0.3s ease",
+                  "&:hover": { 
+                    bgcolor: "rgba(34,211,238,0.1)",
+                    color: "#22d3ee",
+                  },
+                  "&:focus-visible": {
+                    outline: "2px solid #22d3ee",
+                    outlineOffset: "2px",
+                  },
+                  ...(isActive ? {
+                    ...activeStyles,
+                    color: "#22d3ee",
+                    bgcolor: "rgba(34,211,238,0.08)",
+                  } : {}),
                 })}
                 aria-current={({ isActive }) => (isActive ? "page" : undefined)}
               >
@@ -134,11 +158,19 @@ export default function Navbar() {
             edge="end"
             color="inherit"
             aria-label="Open navigation menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation-drawer"
             onClick={handleDrawerToggle}
             sx={{
               display: { xs: "inline-flex", md: "none" },
               ml: 0.5,
-              "&:focus-visible": { outline: "2px solid rgba(255,255,255,.7)" },
+              minWidth: 44,
+              minHeight: 44,
+              touchAction: "manipulation",
+              "&:focus-visible": {
+                outline: "2px solid #22d3ee",
+                outlineOffset: "2px",
+              },
             }}
           >
             <MenuIcon sx={{ fontSize: { xs: "1.5rem", sm: "1.75rem" } }} />
@@ -155,30 +187,34 @@ export default function Navbar() {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         keepMounted
+        id="mobile-navigation-drawer"
+        aria-label="Mobile navigation menu"
         ModalProps={{ keepMounted: true }}
         sx={{
           "& .MuiDrawer-paper": {
-            width: { xs: "78%", sm: 320 },
-            background: "linear-gradient(135deg, rgba(12,10,31,0.98) 0%, rgba(26,15,46,0.98) 100%)",
+            width: { xs: "80%", sm: 320 },
+            maxWidth: 400,
+            background: "linear-gradient(135deg, rgba(18,18,18,0.98) 0%, rgba(26,15,46,0.98) 100%)",
             backdropFilter: "blur(20px)",
-            borderLeft: "1px solid rgba(99,102,241,0.2)",
+            borderLeft: "1px solid rgba(34,211,238,0.2)",
             color: "#fff",
             pt: 1,
           },
         }}
       >
         <Box
-          role="presentation"
+          role="navigation"
+          aria-label="Mobile navigation"
           sx={{ display: "flex", flexDirection: "column", height: "100%" }}
         >
           <Box sx={{ px: 2, py: 1.5 }}>
-            <Typography sx={{ fontWeight: 800, letterSpacing: 0.4 }}>
-              Menu
+            <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.4, fontSize: "1.1rem" }}>
+              Navigation
             </Typography>
           </Box>
           <Divider sx={{ borderColor: "rgba(255,255,255,0.08)" }} />
 
-          <List sx={{ px: 1 }}>
+          <List sx={{ px: 1, py: 1 }}>
             {navItems.map((item) => (
               <ListItemButton
                 key={item.name}
@@ -189,11 +225,17 @@ export default function Navbar() {
                 sx={({ isActive }) => ({
                   borderRadius: 1.5,
                   mb: 0.5,
-                  px: 1.25,
-                  py: 1.25,
+                  px: 1.5,
+                  py: 1.5,
+                  minHeight: 48,
+                  touchAction: "manipulation",
                   ...(isActive
-                    ? { bgcolor: "rgba(255,255,255,0.10)" }
+                    ? { bgcolor: "rgba(6,182,212,0.15)", borderLeft: "3px solid #22d3ee" }
                     : { "&:hover": { bgcolor: "rgba(255,255,255,0.08)" } }),
+                  "&:focus-visible": {
+                    outline: "2px solid #22d3ee",
+                    outlineOffset: "-2px",
+                  },
                 })}
                 aria-current={({ isActive }) => (isActive ? "page" : undefined)}
               >
@@ -202,7 +244,7 @@ export default function Navbar() {
                   primaryTypographyProps={{
                     sx: {
                       fontWeight: 600,
-                      fontSize: { xs: "1rem", sm: "1.05rem" },
+                      fontSize: { xs: "1.05rem", sm: "1.1rem" },
                       color: "inherit",
                     },
                   }}
