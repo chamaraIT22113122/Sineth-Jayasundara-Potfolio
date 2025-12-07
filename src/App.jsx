@@ -6,7 +6,8 @@ import Footer from "./Components/Footer";
 import ScrollToTop from "./Components/ScrollToTop";
 import SEOHead from "./Components/SEOHead";
 import Home from "./Pages/Home";
-import AboutMe from "./Pages/AboutMe";
+import About from "./Pages/About";
+import Achievements from "./Pages/Achievements";
 import Portfolio from "./Pages/Portfolio";
 import Research from "./Pages/Research";
 import Contact from "./Pages/Contact";
@@ -22,7 +23,9 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
-              <Route path="/about" element={<AboutMe />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/aboutme" element={<About />} />
+              <Route path="/achievements" element={<Achievements />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/research" element={<Research />} />
               <Route path="/contact" element={<Contact />} />

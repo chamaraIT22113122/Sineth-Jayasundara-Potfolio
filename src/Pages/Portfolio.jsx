@@ -33,14 +33,16 @@ import {
   Apps,
   Work,
   Web,
+  EmojiEvents,
 } from "@mui/icons-material";
 import { FadeIn, SlideInLeft, SlideInRight, StaggerChildren } from "../Components/ScrollAnimations";
+import { useNavigate } from "react-router-dom";
 import cv from "../Files/Sineth Jayasundera.pdf";
 
 /* ---------- Work Experience Data ---------- */
 const workExperience = [
   {
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Interpol_Logo.svg/1200px-Interpol_Logo.svg.png",
+    emoji: "🏛️",
     title: "President, Interpol General Assembly",
     company: "Colombo Model United Nations",
     location: "Sri Jayewardenepura Kotte, Colombo, Sri Lanka",
@@ -58,7 +60,7 @@ const workExperience = [
     skills: ["Leadership", "Public Speaking", "Diplomacy", "Negotiation", "Policy Writing", "Research"],
   },
   {
-    image: "https://via.placeholder.com/200x200/6366f1/ffffff?text=Flix+11",
+    emoji: "💻",
     title: "Assistant Developer",
     company: "Flix 11",
     location: "Rajagiriya, Colombo, Sri Lanka",
@@ -167,18 +169,20 @@ function ExperienceCard({ item }) {
         <Grid container spacing={2}>
           <Grid item xs={12} md={2} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Box
-              component="img"
-              src={item.image}
-              alt={item.company}
               sx={{
                 width: 80,
                 height: 80,
-                objectFit: "contain",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 48,
                 borderRadius: 2,
-                bgcolor: "rgba(255,255,255,0.05)",
-                p: 1,
+                bgcolor: "rgba(34,211,238,0.1)",
+                border: "1px solid rgba(34,211,238,0.3)",
               }}
-            />
+            >
+              {item.emoji}
+            </Box>
           </Grid>
           <Grid item xs={12} md={10}>
             <Stack spacing={2}>
@@ -250,17 +254,23 @@ export default function Portfolio() {
   const [pdfLoading, setPdfLoading] = useState(true);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const navigate = useNavigate();
 
   const handleTabChange = (event, newValue) => {
-    setTabValue(newValue);
+    if (newValue === 3) {
+      // Navigate to achievements page
+      navigate("/achievements");
+    } else {
+      setTabValue(newValue);
+    }
   };
 
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #121212 100%)",
+        background: "linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #1e2433 100%)",
         minHeight: "100vh",
-        py: 8,
+        py: 10,
         color: "#fff",
       }}
     >
@@ -313,6 +323,7 @@ export default function Portfolio() {
             <Tab label="Experience" icon={<WorkOutline />} iconPosition="start" aria-label="Work experience section" />
             <Tab label="Skills" icon={<Code />} iconPosition="start" aria-label="Technical skills section" />
             <Tab label="Resume" icon={<Description />} iconPosition="start" aria-label="Resume and CV section" />
+            <Tab label="Achievements" icon={<EmojiEvents />} iconPosition="start" aria-label="Achievements section" />
           </Tabs>
         </Box>
 

@@ -33,6 +33,14 @@ import { FaSwimmer, FaFutbol, FaGamepad } from "react-icons/fa";
 import { IoGameController } from "react-icons/io5";
 import { LazyImage } from "../Components/LoadingSpinner";
 import { FadeIn, SlideInLeft, SlideInRight, StaggerChildren } from "../Components/ScrollAnimations";
+import ImageGallery from "../Components/ImageGallery";
+
+// Graduation Images
+import grad1 from "../Images/About me - Time line/Graduation/WhatsApp Image 2025-11-28 at 12.57.48 (1).jpeg";
+import grad2 from "../Images/About me - Time line/Graduation/WhatsApp Image 2025-11-28 at 12.57.48 (2).jpeg";
+import grad3 from "../Images/About me - Time line/Graduation/WhatsApp Image 2025-11-28 at 12.57.48.jpeg";
+
+const graduationImages = [grad1, grad2, grad3];
 
 /* ---------- Personal Info ---------- */
 const personalInfo = {
@@ -582,6 +590,14 @@ export default function AboutMe() {
               );
             })}
           </Timeline>
+        </Box>
+
+        {/* Graduation Memories */}
+        <Box sx={{ mb: 8 }}>
+          <SectionHeader title="Graduation 2025" subtitle="Gateway College Colombo Graduation Ceremony" icon={<SchoolIcon />} />
+          <FadeIn>
+            <ImageGallery images={graduationImages} title="High School Graduation" />
+          </FadeIn>
         </Box>
 
         {/* International Travel */}

@@ -153,11 +153,11 @@ function DesktopFooter() {
                   background: "linear-gradient(135deg, #22d3ee, #22d3ee)",
                   color: "#fff",
                   alignSelf: "start",
-                  boxShadow: "0 4px 16px rgba(34,211,238,0.3)",
+                  boxShadow: "0 2px 8px rgba(34,211,238,0.2)",
                   transition: "all 0.3s ease",
                   "&:hover": { 
                     opacity: 0.95,
-                    boxShadow: "0 6px 24px rgba(34,211,238,0.5)",
+                    boxShadow: "0 4px 12px rgba(34,211,238,0.3)",
                     transform: "translateY(-4px)",
                   },
                   "&:focus-visible": {

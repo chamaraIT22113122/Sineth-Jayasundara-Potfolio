@@ -17,6 +17,7 @@ import {
     FaTiktok,
     FaWhatsapp,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { FadeIn, SlideInLeft, SlideInRight } from "../Components/ScrollAnimations";
 import StatsCounter from "../Components/StatsCounter";
 
@@ -138,33 +139,44 @@ function DesktopHome({ typed }) {
                 <Socials direction="column" />
             </Box>
 
-            {/* Background avatar */}
+            {/* Portrait image on the right */}
             <Box
                 sx={{
-                    position: "Absolute",
-                    top: 40,
-                    right: 60,
-                    width: 280,
-                    height: 280,
-                    borderRadius: "50%",
-                    background: "linear-gradient(135deg, #22d3ee 0%, #22d3ee 50%, #22d3ee 100%)",
+                    position: "absolute",
+                    right: 0,
+                    bottom: 0,
+                    height: "calc(100vh - 72px)",
+                    width: "auto",
+                    maxWidth: "45%",
                     display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 120,
-                    fontWeight: 900,
-                    color: "#fff",
-                    boxShadow: "0 25px 70px rgba(34,211,238,0.6), 0 0 120px rgba(34,211,238,0.4), inset 0 -20px 40px rgba(0,0,0,0.2)",
-                    border: "4px solid rgba(103,232,249,0.3)",
-                    opacity: 0.95,
-                    animation: "float 6s ease-in-out infinite",
-                    "@keyframes float": {
-                        "0%, 100%": { transform: "translateY(0px)" },
-                        "50%": { transform: "translateY(-20px)" },
+                    alignItems: "flex-end",
+                    justifyContent: "flex-end",
+                    pointerEvents: "none",
+                    zIndex: 0,
+                    animation: "fadeInUp 1.2s ease-out",
+                    "@keyframes fadeInUp": {
+                        "0%": {
+                            opacity: 0,
+                            transform: "translateY(60px)",
+                        },
+                        "100%": {
+                            opacity: 1,
+                            transform: "translateY(0)",
+                        },
                     },
                 }}
             >
-                SJ
+                <Box
+                    component="img"
+                    src={vinuja}
+                    alt="Sineth Jayasundera"
+                    sx={{
+                        height: "100%",
+                        width: "auto",
+                        objectFit: "contain",
+                        objectPosition: "bottom right",
+                    }}
+                />
             </Box>
 
             <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
@@ -340,6 +352,7 @@ function DesktopHome({ typed }) {
 
 /* ---------------- Mobile view ---------------- */
 function MobileHome({ typed, direction = "coloumn", }) {
+    const navigate = useNavigate();
     const RAIL_W = 56; // px
     const iconSx = {
         position: "relative",
@@ -370,34 +383,44 @@ function MobileHome({ typed, direction = "coloumn", }) {
             {/* left vertical rail visible on mobile */}
             {/* <SocialRail showOn="mobile" /> */}
 
-
-            {/* avatar pinned bottom-right */}
+            {/* Portrait image on mobile */}
             <Box
                 sx={{
                     position: "absolute",
-                    bottom: { xs: 20, sm: 40 },
-                    right: { xs: 10, sm: 20 },
-                    width: { xs: 140, sm: 180, md: 200 },
-                    height: { xs: 140, sm: 180, md: 200 },
-                    borderRadius: "50%",
-                    background: "linear-gradient(135deg, #22d3ee 0%, #22d3ee 50%, #22d3ee 100%)",
+                    right: 0,
+                    bottom: 0,
+                    height: { xs: "55vh", sm: "65vh" },
+                    width: "auto",
+                    maxWidth: "50%",
                     display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: { xs: 56, sm: 70, md: 80 },
-                    fontWeight: 900,
-                    color: "#fff",
-                    boxShadow: "0 20px 60px rgba(34,211,238,0.6), 0 0 100px rgba(34,211,238,0.4)",
-                    border: "3px solid rgba(103,232,249,0.3)",
-                    opacity: 0.95,
-                    animation: "float 6s ease-in-out infinite",
-                    "@keyframes float": {
-                        "0%, 100%": { transform: "translateY(0px)" },
-                        "50%": { transform: "translateY(-15px)" },
+                    alignItems: "flex-end",
+                    justifyContent: "flex-end",
+                    pointerEvents: "none",
+                    zIndex: 0,
+                    animation: "fadeInUp 1.2s ease-out",
+                    "@keyframes fadeInUp": {
+                        "0%": {
+                            opacity: 0,
+                            transform: "translateY(60px)",
+                        },
+                        "100%": {
+                            opacity: 1,
+                            transform: "translateY(0)",
+                        },
                     },
                 }}
             >
-                SJ
+                <Box
+                    component="img"
+                    src={vinuja}
+                    alt="Sineth Jayasundera"
+                    sx={{
+                        height: "100%",
+                        width: "auto",
+                        objectFit: "contain",
+                        objectPosition: "bottom right",
+                    }}
+                />
             </Box>
 
             {/* content block aligned left with rail padding */}
@@ -487,7 +510,7 @@ function MobileHome({ typed, direction = "coloumn", }) {
                             Download Resume
                         </Button>
                         <Button
-                            href="/projects"
+                            onClick={() => navigate('/contact')}
                             sx={{
                                 textTransform: "none",
                                 borderRadius: 1.5,
@@ -508,7 +531,7 @@ function MobileHome({ typed, direction = "coloumn", }) {
                                 },
                             }}
                         >
-                            View Projects
+                            Get in Touch
                         </Button>
                         <br></br>
                         <br></br>

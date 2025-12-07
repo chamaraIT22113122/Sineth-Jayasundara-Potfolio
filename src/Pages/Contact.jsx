@@ -19,7 +19,7 @@ const Contact = () => {
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #121212 100%)",
+        background: "linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #1e2433 100%)",
         color: "white",
         minHeight: "100vh",
         display: "flex",
@@ -46,8 +46,8 @@ const Contact = () => {
             elevation={8}
             tabIndex={0}
             sx={{
-              background: "linear-gradient(135deg, rgba(26,26,26,0.95) 0%, rgba(32,32,32,0.95) 100%)",
-              border: "1px solid rgba(34,211,238,0.2)",
+              background: "linear-gradient(135deg, rgba(26,32,44,0.98) 0%, rgba(45,55,72,0.98) 100%)",
+              border: "1px solid rgba(34,211,238,0.15)",
               p: { xs: 3, md: 5 },
               borderRadius: 4,
               maxWidth: 600,

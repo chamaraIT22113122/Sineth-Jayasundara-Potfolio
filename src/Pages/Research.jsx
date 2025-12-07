@@ -17,10 +17,14 @@ import { IoTerminal } from "react-icons/io5";
 import { LazyImage } from "../Components/LoadingSpinner";
 import { FadeIn, StaggerChildren } from "../Components/ScrollAnimations";
 
+// Research Images
+import smartEnergyImg from "../Images/Reserch/Smart Energy Reader.png";
+import iotSmartHomeImg from "../Images/Reserch/IoT-Based Smart Home Products.png";
+
 /* ---------- data ---------- */
 const ResearchData = [
   {
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect fill='%236366f1' width='800' height='600'/%3E%3Ctext x='50%25' y='50%25' font-size='64' fill='white' text-anchor='middle' dominant-baseline='middle'%3E⚡%3C/text%3E%3C/svg%3E",
+    image: smartEnergyImg,
     title: "Smart Energy Reader",
     organization: "Flix 11",
     duration: "Summer 2023 - Summer 2024",
@@ -29,7 +33,7 @@ const ResearchData = [
     icon: <MdElectricalServices />,
   },
   {
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect fill='%238b5cf6' width='800' height='600'/%3E%3Ctext x='50%25' y='50%25' font-size='64' fill='white' text-anchor='middle' dominant-baseline='middle'%3E🏠%3C/text%3E%3C/svg%3E",
+    image: iotSmartHomeImg,
     title: "IoT-Based Smart Home Products",
     organization: "Flix 11",
     duration: "Summer 2023 - Summer 2024",
@@ -160,9 +164,9 @@ function DesktopResearch() {
   return (
     <Box
       sx={{
-        background: "linear-gradient(120deg,#121212 0%,#1a1a1a 60%,#202020 100%)",
+        background: "linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #1e2433 100%)",
         minHeight: "100vh",
-        py: 8,
+        py: 10,
         color: "#fff",
       }}
     >
@@ -190,9 +194,9 @@ function MobileResearch() {
   return (
     <Box
       sx={{
-        background: "linear-gradient(180deg,#121212 0%,#191919 100%)",
+        background: "linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #1e2433 100%)",
         minHeight: "100vh",
-        py: 6,
+        py: 8,
         color: "#fff",
       }}
     >

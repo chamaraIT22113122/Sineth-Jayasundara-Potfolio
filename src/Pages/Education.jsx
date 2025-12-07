@@ -302,9 +302,9 @@ function DesktopEducation() {
   return (
     <Box
       sx={{
-        background: "linear-gradient(120deg,#121212 0%,#1a1a1a 60%,#202020 100%)",
+        background: "linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #1e2433 100%)",
         minHeight: "100vh",
-        py: 8,
+        py: 10,
       }}
     >
       <Container maxWidth="lg">
@@ -325,9 +325,9 @@ function MobileEducation() {
   return (
     <Box
       sx={{
-        background: "linear-gradient(180deg,#121212 0%,#191919 100%)",
+        background: "linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #1e2433 100%)",
         minHeight: "100vh",
-        py: 6,
+        py: 8,
       }}
     >
       <Container maxWidth="md">

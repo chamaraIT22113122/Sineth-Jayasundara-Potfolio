@@ -422,9 +422,9 @@ function DesktopExperience() {
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #121212 100%)",
+        background: "linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #1e2433 100%)",
         minHeight: "100vh",
-        py: 8,
+        py: 10,
         color: "#fff",
       }}
     >
@@ -498,9 +498,9 @@ function MobileExperience() {
   return (
     <Box
       sx={{
-        background: "linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #121212 100%)",
+        background: "linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #1e2433 100%)",
         minHeight: "100vh",
-        py: 6,
+        py: 8,
         color: "#fff",
       }}
     >
