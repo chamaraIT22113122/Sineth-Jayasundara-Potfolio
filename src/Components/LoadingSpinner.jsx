@@ -95,7 +95,7 @@ export function LazyImage({ src, alt, sx, ...props }) {
   const [error, setError] = React.useState(false);
 
   return (
-    <Box sx={{ position: "relative", ...sx }}>
+    <Box sx={{ position: "relative", width: "100%", height: "100%", ...sx }}>
       {loading && (
         <Box
           sx={{
@@ -123,6 +123,7 @@ export function LazyImage({ src, alt, sx, ...props }) {
             background: "rgba(35,37,38,0.95)",
             color: "rgba(255,255,255,0.5)",
             fontSize: "0.875rem",
+            width: "100%",
             height: "100%",
             borderRadius: "inherit",
           }}
@@ -130,7 +131,8 @@ export function LazyImage({ src, alt, sx, ...props }) {
           Image not available
         </Box>
       ) : (
-        <img
+        <Box
+          component="img"
           src={src}
           alt={alt}
           loading="lazy"
@@ -139,7 +141,7 @@ export function LazyImage({ src, alt, sx, ...props }) {
             setLoading(false);
             setError(true);
           }}
-          style={{
+          sx={{
             width: "100%",
             height: "100%",
             objectFit: "cover",

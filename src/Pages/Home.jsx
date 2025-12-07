@@ -100,6 +100,7 @@ function Socials({ direction = "row" }) {
 
 /* ---------------- Desktop view ---------------- */
 function DesktopHome({ typed }) {
+    const navigate = useNavigate();
     return (
             <Box
                 sx={{
@@ -293,7 +294,7 @@ function DesktopHome({ typed }) {
                             📄 Download Resume
                         </Button>
                         <Button
-                            href="/contact"
+                            onClick={() => navigate('/contact')}
                             aria-label="Navigate to contact page"
                             sx={{
                                 textTransform: "none",

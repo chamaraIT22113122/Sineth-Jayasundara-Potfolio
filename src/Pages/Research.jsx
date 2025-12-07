@@ -95,11 +95,18 @@ function ResearchCard({ item }) {
       role="article"
       aria-label={`Research project: ${item.title}`}
     >
-      <Box sx={{ position: "relative", height: 200, bgcolor: "rgba(255,255,255,0.03)" }}>
-        <LazyImage
+      <Box sx={{ position: "relative", height: 200, bgcolor: "rgba(255,255,255,0.03)", overflow: "hidden" }}>
+        <Box
+          component="img"
           src={item.image}
           alt={`${item.title} project image`}
-          sx={{ height: "100%", filter: "saturate(0.95) contrast(1.05)" }}
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            filter: "saturate(0.95) contrast(1.05)",
+            display: "block"
+          }}
         />
         <Box
           sx={{
