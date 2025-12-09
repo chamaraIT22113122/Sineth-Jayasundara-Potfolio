@@ -30,6 +30,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "compress": "node compress-images.js",
     "predeploy": "npm run build && copy dist\\index.html dist\\404.html",
     "deploy": "gh-pages -d dist"
   },
@@ -55,6 +56,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@vitejs/plugin-react": "^5.0.4",
     "gh-pages": "^6.3.0",
+    "sharp": "^0.33.5",
     "vite": "^7.1.10"
   },
   "type": "module"
